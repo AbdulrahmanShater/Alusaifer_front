@@ -1295,8 +1295,10 @@ function ProductDetails({ product, buildingTypes, category }) {
                     <ul>
                       {
                         buildingTypes.map((bt) => {
+                         
                           return (
-                            <li>
+                            
+                            <li key={bt}>
                               <Link href="#">
                                 {bt.name}
                                 {/* <span>(30)</span> */}

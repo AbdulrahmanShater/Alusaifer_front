@@ -188,7 +188,7 @@ function HomePageFive(props) {
                 {/* PRODUCT SLIDER AREA START */}
                 {
                     hooksBuildingType.buildingTypes.map((bt) => {
-                        return <div className="ltn__product-slider-area ltn__product-gutter pt-115 pb-90 plr--7">
+                        return <div className="ltn__product-slider-area ltn__product-gutter pt-115 pb-90 plr--7" key={bt}>
                             <Container fluid>
                                 <Row>
                                     <Col lg={12}>
