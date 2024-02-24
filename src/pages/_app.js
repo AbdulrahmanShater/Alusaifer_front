@@ -40,7 +40,7 @@ const MyApp = ({ Component, ...rest }) => {
         <title>تمليك شركة محمدالاصيفر</title>
         <meta name="description" content="فلل تمليك الطائف شركة محمد الاصيفر " />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/img/logo.png" />
       </Head>
       <style jsx global>{`
         html,body {
