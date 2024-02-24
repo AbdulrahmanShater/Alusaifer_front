@@ -1,0 +1,16 @@
+export interface CategoryModel {
+    title: string,
+    date: string,
+    price: string,
+    address: string,
+    apartmentscount: string,
+    LoungeCount: string,
+    kitchenCount: string,
+    bathroomsCount: string,
+    bedroomscount: string,
+    maidRoomCount: boolean,
+    elevator: boolean,
+    specialYard: boolean,
+    space: string,
+    image: string,
+}

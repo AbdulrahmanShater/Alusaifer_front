@@ -1,0 +1,71 @@
+interface AqarDetailModel {
+    id: number;
+    user_id: number;
+    user: string;
+    user_avatar: string;
+    phone: string | null;
+    user_type: string;
+    building_type: {
+        id: number;
+        name: string;
+    };
+    network_types: Array<{
+        id: number;
+        name: string;
+        image: string;
+    }>;
+    desc: string;
+    advertiser_phone: string | null;
+    min_price: number;
+    max_price: number;
+    min_distance: number;
+    max_distance: number;
+    apartments_count: number;
+    bedrooms_count: number;
+    bathrooms_count: number;
+    additional_rooms_count: number | null;
+    all_rooms: number;
+    shops_count: number;
+    street_width: number | null;
+    age: string;
+    interface: string | null;
+    license_number: string;
+    adv_license_number: string;
+    purpose: string;
+    address: string;
+    lat: string;
+    long: string;
+    driver_room: number;
+    maid_room: number;
+    pool: number;
+    car_entrance: number;
+    external_staircase: number;
+    courtyard: number;
+    supplement: number;
+    elevator: number;
+    kitchen: number;
+    roof: number;
+    duplex: number;
+    separated: number;
+    basement: number;
+    air_conditioner: number;
+    video_link: string | null;
+    video: string;
+    icon: string;
+    images: Array<{
+        id: number;
+        url: string;
+        delete: {
+            href: string;
+            method: string;
+        };
+    }>;
+    views: number;
+    status: string;
+    current_status: string;
+    is_favored: boolean;
+    from_dashboard: number;
+    created_from_dashboard: number;
+    creation_time: string;
+    last_update: string;
+}
