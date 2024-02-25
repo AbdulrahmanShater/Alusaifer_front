@@ -9,7 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
     "@hasanm95/cogo-toast": "https://github.com/hasanm95/cogo-toast",
+    "@headlessui/react": "^1.7.18",
+    "@heroicons/react": "^2.1.1",
+    "@mui/material": "^5.15.10",
     "@next/font": "^13.2.4",
     "@reduxjs/toolkit": "^1.9.1",
     "animate.css": "^3.7.0",

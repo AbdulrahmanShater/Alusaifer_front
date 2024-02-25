@@ -34,6 +34,8 @@ import blogData from "@/data/blog";
 import CallToAction from "@/components/callToAction";
 import { buildUrlWithParams } from "@/api/config/http";
 import ProductItem from "@/components/product";
+import { useRouter } from 'next/router';
+import { LoadingPage } from "@/components/Loading";
 
 function ProductDetails({ product, buildingTypes, category }) {
   // const { products } = useSelector((state) => state.product);
@@ -41,11 +43,23 @@ function ProductDetails({ product, buildingTypes, category }) {
   // const { wishlistItems } = useSelector((state) => state.wishlist);
   // const { compareItems } = useSelector((state) => state.compare);
   // const latestdBlogs = getProducts(blogData, "buying", "featured", 4);
+  
+  const router = useRouter();
 
+  
   const relatedProducts = category.aqars;
   const topRatedProducts = [];
   const popularProducts = [];
   const latestdBlogs = [];
+
+  const [isOpen, setOpen] = useState(false);
+
+
+  if (router.isFallback) {
+    return <LoadingPage/>;
+  }
+
+
   // const relatedProducts = getProducts(
   //   products,
   //   product.category[0],
@@ -176,7 +190,6 @@ function ProductDetails({ product, buildingTypes, category }) {
     arrows: false,
   };
 
-  const [isOpen, setOpen] = useState(false);
 
   return (
     <>
@@ -190,7 +203,7 @@ function ProductDetails({ product, buildingTypes, category }) {
         />
         {/* <!-- BREADCRUMB AREA START --> */}
 
-        <BreadCrumb   style={{ textAlign: "right" }}
+        <BreadCrumb style={{ textAlign: "right" }}
           title="تفاصيل العقار"
           sectionPace="mb-0"
           currentSlug={product.user}
@@ -1294,11 +1307,9 @@ function ProductDetails({ product, buildingTypes, category }) {
                     </h4>
                     <ul>
                       {
-                        buildingTypes.map((bt) => {
-                         
+                        buildingTypes.map((bt, index) => {
                           return (
-                            
-                            <li key={bt}>
+                            <li key={String(index)}>
                               <Link href="#">
                                 {bt.name}
                                 {/* <span>(30)</span> */}
@@ -1485,11 +1496,16 @@ function ProductDetails({ product, buildingTypes, category }) {
 
 export default ProductDetails;
 
-export async function getStaticProps({ params }) {
-  // get product data based on slug
-  // const product = products.filter(
-  //   (single) => productSlug(single.title) === params.slug
-  // )[0];
+export async function getServerSideProps({ params }) {
+  const { slug } = params;
+  
+  console.log("getServerSideProps")
+  console.log(params)
+
+
+  // Fetch product details from an API based on productId
+  // const res = await fetch(`https://api.example.com/products/${productId}`);
+  // const product = await res.json();
 
   const buildingResponse = await fetch(`https://akar.alusaifer.com.sa/api/building_types`);
   var buildingTypes = await buildingResponse.json();
@@ -1501,39 +1517,73 @@ export async function getStaticProps({ params }) {
     buildingTypes[index].aqars = aqarsData.data.data
   }
 
-
   const response = await fetch(`https://akar.alusaifer.com.sa/api/advertisements/${params.slug}?fromDetails=0`);
   const res = await response.json()
   const product = res.data;
 
+  
+
   const category = buildingTypes.find((f) => Number(f.id) == Number(product.building_type.id));
 
-  return { props: { product, buildingTypes, category } };
+  return {
+    props: {
+      product, buildingTypes, category
+    }
+  };
+
 }
 
-export async function getStaticPaths() {
-  // get the paths we want to pre render based on products
 
-  var aqars = [];
+// export async function getStaticProps({ params }) {
+
+//   const buildingResponse = await fetch(`https://akar.alusaifer.com.sa/api/building_types`);
+//   var buildingTypes = await buildingResponse.json();
+//   buildingTypes = buildingTypes.data.data;
+
+//   for (let index = 0; index < buildingTypes.length; index++) {
+//     const aqarsResponse = await fetch(buildUrlWithParams(`https://akar.alusaifer.com.sa/api/advertisements/filter`, { buildingtype: String(buildingTypes[index].id) }));
+//     const aqarsData = await aqarsResponse.json();
+//     buildingTypes[index].aqars = aqarsData.data.data
+//   }
 
 
-  const response = await fetch(`https://akar.alusaifer.com.sa/api/building_types`);
-  var buildingTypes = await response.json();
-  buildingTypes = buildingTypes.data.data;
+//   const response = await fetch(`https://akar.alusaifer.com.sa/api/advertisements/${params.slug}?fromDetails=0`);
+//   const res = await response.json()
+//   const product = res.data;
 
-  for (let index = 0; index < buildingTypes.length; index++) {
-    const aqarsResponse = await fetch(buildUrlWithParams(`https://akar.alusaifer.com.sa/api/advertisements/filter`, { buildingtype: String(buildingTypes[index].id) }));
-    const aqarsData = await aqarsResponse.json();
-    aqars = [...aqars, ...aqarsData.data.data]
-  }
+//   const category = buildingTypes.find((f) => Number(f.id) == Number(product.building_type.id));
 
-  // const response = await fetch(`https://akar.alusaifer.com.sa/api/advertisements/${params.slug}?fromDetails=0`);
-  // const res = await response.json()
-  // const product = res.data;
+//   return { props: { product, buildingTypes, category } };
+// }
 
-  const paths = aqars.map((product) => ({
-    params: { slug: String(product.id) },
-  }));
+// export async function getStaticPaths() {
+//   // get the paths we want to pre render based on products
 
-  return { paths, fallback: false };
-}
+//   var aqars = [];
+
+
+//   const response = await fetch(`https://akar.alusaifer.com.sa/api/building_types`);
+//   var buildingTypes = await response.json();
+//   buildingTypes = buildingTypes.data.data;
+
+//   for (let index = 0; index < buildingTypes.length; index++) {
+//     const aqarsResponse = await fetch(buildUrlWithParams(`https://akar.alusaifer.com.sa/api/advertisements/filter`, { buildingtype: String(buildingTypes[index].id) }));
+//     const aqarsData = await aqarsResponse.json();
+//     aqars = [...aqars, ...aqarsData.data.data]
+//   }
+
+//   // console.log("-----TEST-----");
+//   // console.log(aqars);
+//   // console.log("-----TEST-----");
+
+//   // const response = await fetch(`https://akar.alusaifer.com.sa/api/advertisements/${params.slug}?fromDetails=0`);
+//   // const res = await response.json()
+//   // const product = res.data;
+
+//   const paths = aqars.map((product) => ({
+//     params: { slug: String(product.id) },
+//     // params: { slug: String(146) },
+//   }));
+
+//   return { paths, fallback: false };
+// }
