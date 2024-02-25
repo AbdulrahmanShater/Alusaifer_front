@@ -5,7 +5,7 @@ const MenuList = ({ addListing }) => {
     <ul>
       <li className="menu-icon">
         <Link href="/">
-          الرئسية 
+          الرئيسية 
         </Link>
        
       

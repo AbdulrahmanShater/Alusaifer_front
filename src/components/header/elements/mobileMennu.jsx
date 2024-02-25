@@ -84,7 +84,7 @@ const MobileMenu = function ({ offCanVastoggleBtn, closeSideBar }) {
           <div className="ltn__utilize-menu" dir="rtl">
             <ul>
               <li>
-                <Link href="#">الرئسية</Link>
+                <Link href="/">الرئيسية</Link>
                
               </li>
               <li>
