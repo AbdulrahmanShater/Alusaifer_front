@@ -1,6 +1,6 @@
 import { Fragment, useEffect } from "react";
 import Head from "next/head";
-import { Nunito_Sans,Poppins } from "next/font/google";
+import { Nunito_Sans, Poppins } from "next/font/google";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { wrapper } from "@/store";
@@ -40,7 +40,7 @@ const MyApp = ({ Component, ...rest }) => {
         <title>تمليك شركة محمدالاصيفر</title>
         <meta name="description" content="فلل تمليك الطائف شركة محمد الاصيفر " />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/img/logo.png" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <style jsx global>{`
         html,body {

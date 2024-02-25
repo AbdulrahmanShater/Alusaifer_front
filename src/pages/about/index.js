@@ -15,6 +15,10 @@ import Feature from "@/components/features";
 import featureData from "@/data/service"
 import TeamItem from "@/components/team";
 import TeamData from '@/data/team';
+import playistItem from "@/data/playlistItems.json";
+import VideoItem from "@/components/aboutUs/videoItem";
+
+
 
 function AboutUs() {
   const agents = getProducts(TeamData, "buying", "featured", 3);
@@ -68,17 +72,49 @@ function AboutUs() {
     prevArrow: <SlickArrowLeft />,
     nextArrow: <SlickArrowRight />,
   };
+  const productCarouselsettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    prevArrow: <SlickArrowLeft />,
+    nextArrow: <SlickArrowRight />,
+    responsive: [
+      {
+        breakpoint: 1799,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1199,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 575,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
   return (
     <>
       <LayoutOne topbar={true} >
-        <ShopBreadCrumb 
-          title="عن شركة محمد الاصيفر " 
+        <ShopBreadCrumb
+          title="عن شركة محمد الاصيفر "
           sectionPace=""
           currentSlug="من نحن"
         />
 
-        <AboutUsStyleOne sectionSpace="pb-90"  />
+        <AboutUsStyleOne sectionSpace="pb-90" />
 
         <Feature
           classes="section-bg-1"
@@ -87,7 +123,7 @@ function AboutUs() {
           data={featureDataSorted}
           titleSectionData={{
             sectionClasses: "text-center",
-          
+
           }}
         />
 
@@ -108,26 +144,37 @@ function AboutUs() {
                 />
               </Col>
             </Row>
-
             <Row>
-              {agents.map((data, key) => {
+              {playistItem.items.map((product, key) => {
+                return (
+                  <Col key={key} xs={12} sm={6} lg={4} >
+                    <VideoItem
+                      key={product.id}
+                      image={product.snippet.thumbnails.medium.url}
+                      title={product.snippet.title}
+                      videoId={product.snippet.resourceId.videoId}
+                      additionalClassname="relative"
+                    // url={`https://www.youtube.com/watch?v=${product.snippet.resourceId.videoId}`}
+                    />
+                  </Col>
+                );
+              })}
+              {/* {agents.map((data, key) => {
                 const slug = productSlug(data.name);
                 return (
                   <Col key={key} xs={12} sm={6} lg={4} >
                     <TeamItem baseUrl="blog" data={data} slug={slug} additionalClassname="" />
                   </Col>
                 );
-              })}
+              })} */}
             </Row>
 
 
           </Container>
         </div>
 
-
-
         {/* <!-- TESTIMONIAL AREA START (testimonial-7) -->  */}
-       
+
         {/* <!-- TESTIMONIAL AREA END --> */}
 
         {/* <!-- BLOG AREA START (blog-3) -->  */}
