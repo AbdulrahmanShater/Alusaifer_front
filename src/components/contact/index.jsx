@@ -29,8 +29,7 @@ const Contact = () => {
                 </div>
                 <h3>Email Address</h3>
                 <p>
-                  info@webmail.com <br />
-                  jobs@webexample.com
+                info@alusaifer.com.sa <br />
                 </p>
               </div>
             </div>
@@ -41,7 +40,7 @@ const Contact = () => {
                 </div>
                 <h3>Phone Number</h3>
                 <p>
-                  +0123-456789 <br /> +987-6543210
+                +966 920 033 002 <br /> 
                 </p>
               </div>
             </div>
@@ -52,8 +51,8 @@ const Contact = () => {
                 </div>
                 <h3>Office Address</h3>
                 <p>
-                  18/A, New Born Town Hall <br />
-                  New York, US
+                الأخباب <br />
+                الطائف, المملكة العربية السعودية
                 </p>
               </div>
             </div>
@@ -159,11 +158,12 @@ const Contact = () => {
 
       {/* <!-- GOOGLE MAP AREA START --> */}
       <div className="google-map mb-120">
-        <iframe
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1738.0338418162214!2d40.3767722652063!3d21.22760172285248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15e988dd4c567073%3A0xa31051367b4a1d06!2z2LTYsdmD2Ycg2YXYrdmF2K8g2KfZhNin2LXZitmB2LEg2YTZhNiq2LfZiNmK2LEg2YjYp9mE2KfYs9iq2KvZhdin2LEg2KfZhNi52YLYp9ix2Yo!5e0!3m2!1sen!2sae!4v1709309924420!5m2!1sen!2sae" width="100%" height="100%" ></iframe>
+        {/* <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9334.271551495209!2d-73.97198251485975!3d40.668170674982946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b0456b5a2e7%3A0x68bdf865dda0b669!2sBrooklyn%20Botanic%20Garden%20Shop!5e0!3m2!1sen!2sbd!4v1590597267201!5m2!1sen!2sbd"
           width="100%"
           height="100%"
-        ></iframe>
+        ></iframe> */}
       </div>
       {/* <!-- GOOGLE MAP AREA END --> */}
     </>

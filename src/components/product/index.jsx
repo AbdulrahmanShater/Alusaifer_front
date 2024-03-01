@@ -68,7 +68,7 @@ const ProductItem = ({
         <div className="product-info">
           <div className="product-price">
             <span>
-              {`${Number(productData.max_price).toLocaleString('en')}`}
+              {`ر.س ${Number(productData.max_price).toLocaleString('en')}`}
               {/* <label>/Month</label> */}
             </span>
           </div>
@@ -76,23 +76,37 @@ const ProductItem = ({
             {/* /${baseUrl}/${slug} */}
             <Link href={``}>{productData.user}</Link>
           </h2>
-          {/* <div className="product-description">
-            <p>{productData.fullDescription}</p>
-          </div> */}
+          <div className="product-description">
+            <p>{productData.address}</p>
+          </div>
           <ul className="ltn__list-item-2 ltn__list-item-2-before">
-            <li>
+            {/* <li>
               <span>
                 {productData.bedrooms_count}
                 <i className="flaticon-bed"></i>
               </span>
               {"غرفة نوم"}
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
               <span>
                 {productData.bathrooms_count}
                 <i className="flaticon-clean"></i>
               </span>
               {"حمام"}
+            </li> */}
+            <li>
+              <span>
+                {`${productData.min_distance}-${productData.max_distance}م`}
+                <i class="flaticon-expand" ></i>
+              </span>
+              {"مساحة"}
+            </li>
+            <li>
+              <span>
+                {`${productData.views}`}
+                <i class="far fa-eye" ></i>
+              </span>
+              {"المشاهدات"}
             </li>
             {/* <li>
               <span>
@@ -120,6 +134,7 @@ const ProductItem = ({
               <small>{productData.user_type}</small>
             </div>
           </div>
+          <small>{productData.creation_time}</small>
           {/* <div className="product-hover-action">
             <ul>
               <li>

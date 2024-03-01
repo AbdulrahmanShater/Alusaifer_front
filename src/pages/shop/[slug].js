@@ -522,7 +522,8 @@ function ProductDetails({ product, buildingTypes, category }) {
                   <h4 className="title-2">Location</h4>
                   <div className="property-details-google-map mb-60">
                     <iframe
-                      src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9334.271551495209!2d${product.long}!3d${product.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b0456b5a2e7%3A0x68bdf865dda0b669!2sBrooklyn%20Botanic%20Garden%20Shop!5e0!3m2!1sen!2sbd!4v1590597267201!5m2!1sen!2sbd`}
+                      // src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9334.271551495209!2d${product.long}!3d${product.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b0456b5a2e7%3A0x68bdf865dda0b669!2sBrooklyn%20Botanic%20Garden%20Shop!5e0!3m2!1sen!2sbd!4v1590597267201!5m2!1sen!2sbd`}
+                      src={`https://maps.google.com/maps?q=${product.lat},${product.long}&output=embed`}
                       width="100%"
                       height="100%"
                       frameBorder="0"
