@@ -2,19 +2,21 @@ import { LayoutOne } from "@/layouts";
 import { Container, Row, Col } from "react-bootstrap";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
 import CallToAction from "@/components/callToAction";
-import Contact from "@/components/contact";
+import TermsAndConditionsStyleOne from "@/components/termsAndConditions/termsAndConditionsStyleOne";
 
-function ContactUs() {
+
+function TermsAndConditions() {
+
   return (
     <>
-      <LayoutOne topbar={true}>
+      <LayoutOne topbar={true} >
         <ShopBreadCrumb
-          title="تواصل معنا"
+          title="الشروط و الأحكام"
           sectionPace=""
-          currentSlug="Contact"
+          currentSlug="الشروط و الأحكام"
         />
 
-        <Contact />
+        <TermsAndConditionsStyleOne sectionSpace="pb-90" />
 
         <div className="ltn__call-to-action-area call-to-action-6 before-bg-bottom">
           <Container>
@@ -30,4 +32,4 @@ function ContactUs() {
   );
 }
 
-export default ContactUs;
+export default TermsAndConditions;

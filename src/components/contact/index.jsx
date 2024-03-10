@@ -27,7 +27,7 @@ const Contact = () => {
                 <div className="ltn__contact-address-icon">
                   <img src="/img/icons/10.png" alt="Icon Image" />
                 </div>
-                <h3>Email Address</h3>
+                <h3>البريد الالكتروني</h3>
                 <p>
                 info@alusaifer.com.sa <br />
                 </p>
@@ -38,7 +38,7 @@ const Contact = () => {
                 <div className="ltn__contact-address-icon">
                   <img src="/img/icons/11.png" alt="Icon Image" />
                 </div>
-                <h3>Phone Number</h3>
+                <h3>الهاتف</h3>
                 <p>
                 +966 920 033 002 <br /> 
                 </p>
@@ -49,10 +49,9 @@ const Contact = () => {
                 <div className="ltn__contact-address-icon">
                   <img src="/img/icons/12.png" alt="Icon Image" />
                 </div>
-                <h3>Office Address</h3>
+                <h3>الموقع</h3>
                 <p>
-                الأخباب <br />
-                الطائف, المملكة العربية السعودية
+                الأخباب, الطائف, المملكة العربية السعودية
                 </p>
               </div>
             </div>

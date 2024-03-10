@@ -2,19 +2,20 @@ import { LayoutOne } from "@/layouts";
 import { Container, Row, Col } from "react-bootstrap";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
 import CallToAction from "@/components/callToAction";
-import Contact from "@/components/contact";
+import PrivacyPolicyStyleOne from "@/components/privacyPolicy/PrivacyPolicyStyleOne";
 
-function ContactUs() {
+
+function PrivacyPolicy() {
   return (
     <>
-      <LayoutOne topbar={true}>
+      <LayoutOne topbar={true} >
         <ShopBreadCrumb
-          title="تواصل معنا"
+          title="سياسة الخصوصية"
           sectionPace=""
-          currentSlug="Contact"
+          currentSlug="سياسة الخصوصية"
         />
 
-        <Contact />
+        <PrivacyPolicyStyleOne sectionSpace="pb-90" />
 
         <div className="ltn__call-to-action-area call-to-action-6 before-bg-bottom">
           <Container>
@@ -30,4 +31,4 @@ function ContactUs() {
   );
 }
 
-export default ContactUs;
+export default PrivacyPolicy;

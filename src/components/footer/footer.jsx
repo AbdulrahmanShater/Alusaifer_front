@@ -163,6 +163,13 @@ const Footer = function () {
                       <li>
                         <Link href="/contact">تواصل معنا</Link>
                       </li>
+                      <li>
+                        <Link href="/terms-and-conditions">الشروط و الأحكام</Link>
+                      </li>
+                      <li>
+                        <Link href="/privacy-policy">سياسة الخصوصية</Link>
+                      </li>
+
                     </ul>
                   </div>
                 </div>

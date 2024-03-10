@@ -2,6 +2,7 @@ import { Fragment, useState } from "react";
 import { HeaderTransparent } from "@/components/header";
 import Footer from "@/components/footer/footer";
 import ScrollToTop from "@/components/scroll-to-top";
+import WhatsAppButton from "@/components/whatsapp-button";
 
 const LayoutFour = ({ children, navPositionClass, topbar }) => {
   const [toggleClassName, SetToggleClassName] = useState(false);
@@ -23,7 +24,10 @@ const LayoutFour = ({ children, navPositionClass, topbar }) => {
         />
         {children}
         <Footer />
+
         <ScrollToTop />
+        <WhatsAppButton />
+
       </div>
     </Fragment>
   );

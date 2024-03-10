@@ -85,7 +85,7 @@ const HeaderStyleOne = function ({ SetToggleClassName, topbar }) {
     <>
       <header className="ltn__header-area ltn__header-5" dir="rtl">
         {/* <!-- ltn__header-top-area start --> */}
-        {topbar ? <HeaderTopBarOne /> : null}
+        {/* {topbar ? <HeaderTopBarOne /> : null} */}
 
         {/* <!-- ltn__header-top-area end --> */}
 

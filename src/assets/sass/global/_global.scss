@@ -2574,3 +2574,39 @@ ul {
   z-index: 10;
   position: relative;
 }
+
+/* ----------------------------------------------------
+    Whatsapp Button
+---------------------------------------------------- */
+#whatsappButton {
+  position: fixed;
+  z-index: 2147483647;
+  background-color: var(--ltn__secondary-color);
+  color: var(--white);
+  bottom: 70px;
+  font-size: 20px;
+  font-weight: bold;
+  height: 40px;
+  width: 40px;
+  left: 3%;
+  text-align: center;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  box-shadow: var(--ltn__box-shadow-3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    line-height: 40px;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  &:hover {
+    background-color: var(--ltn__secondary-color);
+    color: var(--white);
+  }
+}

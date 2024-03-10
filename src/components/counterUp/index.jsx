@@ -25,7 +25,7 @@ function CounterUp() {
             <Col xs={12} sm={6} md={3} className="align-self-center">
               <div className="ltn__counterup-item">
                 <div className="counter-icon">
-                  <i className="flaticon-select"></i>
+                  <i className="flaticon-user"></i>
                 </div>
                 <h1>
                   <VisibilityObserver
