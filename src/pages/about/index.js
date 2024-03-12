@@ -17,6 +17,7 @@ import TeamItem from "@/components/team";
 import TeamData from '@/data/team';
 import playistItem from "@/data/playlistItems.json";
 import VideoItem from "@/components/aboutUs/videoItem";
+import AboutUsStyleTwo from "@/components/aboutUs/aboutUsStyleTwo";
 
 
 
@@ -114,7 +115,7 @@ function AboutUs() {
           currentSlug="من نحن"
         />
 
-        <AboutUsStyleOne sectionSpace="pb-90" />
+        <AboutUsStyleTwo sectionSpace="pb-90" />
 
         <Feature
           classes="section-bg-1"
@@ -139,7 +140,7 @@ function AboutUs() {
                   headingClasses="section-subtitle-2"
                   titleSectionData={{
                     subTitle: "المشاريع",
-                    title: "المشاريع السابقة",
+                    title: "تغذية بصرية",
                   }}
                 />
               </Col>

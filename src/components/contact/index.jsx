@@ -61,12 +61,12 @@ const Contact = () => {
       {/* <!-- CONTACT ADDRESS AREA END --> */}
 
       {/* <!-- CONTACT MESSAGE AREA START --> */}
-      <div className="ltn__contact-message-area mb-120 mb--100">
+      <div className="ltn__contact-message-area mb-120 mb--100"dir="rtl">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
               <div className="ltn__form-box contact-form-box box-shadow white-bg">
-                <h4 className="title-2">Get A Quote</h4>
+                <h4 className="title-2">اكتب استفسارك</h4>
                 <form id="contact-form" action="#" method="post">
                   <div className="row">
                     <div className="col-md-6">
@@ -74,7 +74,7 @@ const Contact = () => {
                         <input
                           type="text"
                           name="name"
-                          placeholder="Enter your name"
+                          placeholder="الأسم "
                         />
                         <span className="inline-icon">
                           <FaUserAlt />
@@ -86,7 +86,7 @@ const Contact = () => {
                         <input
                           type="email"
                           name="email"
-                          placeholder="Enter email address"
+                          placeholder="البريد الألكتروني"
                         />
                         <span className="inline-icon">
                           <FaEnvelope />
@@ -96,13 +96,13 @@ const Contact = () => {
                     <div className="col-md-6">
                       <div className="input-item input-item input-item-email ltn__custom-icon">
                         <Form.Select className="nice-select">
-                          <option>Select Service Type</option>
-                          <option>Property Management </option>
-                          <option>Mortgage Service </option>
-                          <option>Consulting Service</option>
-                          <option>Home Buying</option>
-                          <option>Home selling</option>
-                          <option>Escrow Services</option>
+                          <option>خدمات مابعد البيع</option>
+                          <option>عن الابراج </option>
+                          <option>شكوى </option>
+                          <option>تسويق شركات خارجيه</option>
+                          <option>استفسار عام</option>
+                          <option>اخرى</option>
+                         
                         </Form.Select>
                         <span className="inline-icon">
                           <FaArrowDown />
@@ -114,7 +114,7 @@ const Contact = () => {
                         <input
                           type="text"
                           name="phone"
-                          placeholder="Enter phone number"
+                          placeholder="رقم الجوال"
                         />
                         <span className="inline-icon">
                           <FaPhoneAlt />
@@ -125,25 +125,19 @@ const Contact = () => {
                   <div className="input-item input-item-textarea ltn__custom-icon">
                     <textarea
                       name="message"
-                      placeholder="Enter message"
+                      placeholder="اكتب استفسارك"
                     ></textarea>
                     <span className="inline-icon">
                       <FaPencilAlt />
                     </span>
                   </div>
-                  <p>
-                    <label className="input-info-save mb-0">
-                      <input type="checkbox" name="agree" /> Save my name,
-                      email, and website in this browser for the next time I
-                      comment.
-                    </label>
-                  </p>
+                 
                   <div className="btn-wrapper mt-0">
                     <button
                       className="btn theme-btn-1 btn-effect-1 text-uppercase"
                       type="submit"
                     >
-                      get a free service
+                    ارسال
                     </button>
                   </div>
                   <p className="form-messege mb-0 mt-20"></p>

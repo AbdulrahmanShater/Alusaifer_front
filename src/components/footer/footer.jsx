@@ -11,6 +11,8 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
   FaPhoneAlt,
+  FaSnapchat,
+  FaInstagram,
 } from "react-icons/fa";
 
 const Footer = function () {
@@ -36,7 +38,7 @@ const Footer = function () {
                     <ul>
                       <li>
                         <div className="footer-address-icon">
-                          <FaMapMarkerAlt />
+                         
                         </div>
                         <div className="footer-address-info">
                           <p>حي الاخباب، الطائف 26513</p>
@@ -44,7 +46,7 @@ const Footer = function () {
                       </li>
                       <li>
                         <div className="footer-address-icon">
-                          <FaPhoneAlt />
+                        
                         </div>
                         <div className="footer-address-info">
                           <p>
@@ -54,7 +56,7 @@ const Footer = function () {
                       </li>
                       <li>
                         <div className="footer-address-icon">
-                          <FaEnvelope />
+                         
                         </div>
                         <div className="footer-address-info">
                           <p>
@@ -69,22 +71,22 @@ const Footer = function () {
                   <div className="ltn__social-media mt-20">
                     <ul>
                       <li>
-                        <Link href="#" title="Facebook">
-                          <FaFacebookF />
+                        <Link href="https://www.instagram.com/malusaifer/?igshid=YzA2ZDJiZGQ%3D" title="Facebook">
+                          <FaInstagram />
                         </Link>
                       </li>
                       <li>
-                        <Link href="#" title="Twitter">
+                        <Link href="https://twitter.com/i/flow/login?redirect_after_login=%2Fm_alusaifer" title="Twitter">
                           <FaTwitter />
                         </Link>
                       </li>
                       <li>
-                        <Link href="#" title="Linkedin">
-                          <FaLinkedin />
+                        <Link href="https://www.snapchat.com/add/m.alusaifer/9swha3-JQzCJMBLJXb1cOAAAgdWNvZ2Nhc2pxAYzPc1i1AYzPcx3YAAAAAA?share_id=RDVFQTYxNzktNjNBNS00MEUwLUIwRUYtNDQ0MjVDQTdFNTM0&locale=ar_SA@calendar=gregorian&sid=5226a135ee044fb98e7d50e71c2b5355" title="Linkedin">
+                          <FaSnapchat />
                         </Link>
                       </li>
                       <li>
-                        <Link href="#" title="Youtube">
+                        <Link href="https://www.youtube.com/channel/UCt6dNC90o6Y5LKjPFR-T3Qw?themeRefresh=1" title="Youtube">
                           <FaYoutube />
                         </Link>
                       </li>
@@ -106,12 +108,12 @@ const Footer = function () {
                       <li>
                         <Link href="/shop">العقارات</Link>
                       </li>
-                      <li>
+                      {/* <li>
                         <Link href="/locations">موقعنا</Link>
                       </li>
                       <li>
                         <Link href="/faq">الاسئلة الشائعه</Link>
-                      </li>
+                      </li> */}
                       <li>
                         <Link href="/contact">تواصل معنا</Link>
                       </li>
@@ -119,7 +121,7 @@ const Footer = function () {
                   </div>
                 </div>
               </Col>
-              <Col xs={12} sm={6} xl={2}>
+              {/* <Col xs={12} sm={6} xl={2}>
                 <div className="footer-widget footer-menu-widget clearfix">
                   <h4 className="footer-title">الخدمات </h4>
                   <div className="footer-menu">
@@ -141,13 +143,13 @@ const Footer = function () {
                     </ul>
                   </div>
                 </div>
-              </Col>
+              </Col> */}
               <Col xs={12} sm={6} xl={2}>
                 <div className="footer-widget footer-menu-widget clearfix">
                   <h4 className="footer-title">العناية بالعملاء</h4>
                   <div className="footer-menu">
                     <ul>
-                      <li>
+                      {/* <li>
                         <Link href="/login">تسجيل دخول</Link>
                       </li>
                       <li>
@@ -159,7 +161,7 @@ const Footer = function () {
                      
                       <li>
                         <Link href="/faq">الأسئلة الشائعة</Link>
-                      </li>
+                      </li> */}
                       <li>
                         <Link href="/contact">تواصل معنا</Link>
                       </li>

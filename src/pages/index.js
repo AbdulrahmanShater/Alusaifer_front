@@ -255,7 +255,7 @@ function HomePageFive(props) {
                                     headingClasses="section-subtitle-2"
                                     titleSectionData={{
                                         subTitle: "تفاصيل ابراج محمد الاصيفر",
-                                        title: "خطة الشقق",
+                                      
                                         additionalClassName: "",
                                     }}
                                 />
@@ -265,54 +265,56 @@ function HomePageFive(props) {
                                         <Nav className="nav justify-content-center">
                                             <Nav.Link eventKey="first">فلل قصر الامير بندر</Nav.Link>
                                             <Nav.Link eventKey="second">الفلل البانورامية</Nav.Link>
-                                            <Nav.Link eventKey="third">شقق السحاب</Nav.Link>
-                                            <Nav.Link eventKey="fourth">فلل السحاب</Nav.Link>
-                                            {/* <Nav.Link eventKey="five"> Double Height</Nav.Link> */}
+                                            <Nav.Link eventKey="third">شقق بانورامية بالحوش</Nav.Link>
+                                             <Nav.Link eventKey="fourth">فلل السحاب</Nav.Link>
+                                            {/* <Nav.Link eventKey="five"> Double Height</Nav.Link>  */}
                                         </Nav>
                                     </div>
                                     <Tab.Content>
-                                        <Tab.Pane eventKey="first">
+                                        <Tab.Pane eventKey="first" >
                                             <div className="ltn__apartments-tab-content-inner">
                                                 <Row>
                                                     <Col xs={12} lg={6}>
-                                                        <div className="apartments-plan-info ltn__secondary-bg text-color-white">
-                                                            <h2>The Studio</h2>
+                                                        <div className="apartments-plan-info ltn__secondary-bg text-color-white"dir="rtl">
+                                                            <h2>فلل روف قصر الامير بندر</h2>
                                                             <p>
-                                                                Enimad minim veniam quis nostrud exercitation
-                                                                ullamco laboris. Lorem ipsum dolor sit amet cons
-                                                                aetetur adipisicing elit sedo eiusmod
-                                                                tempor.Incididunt labore et dolore magna aliqua.
-                                                                sed ayd minim veniam.
+                                                               تقع ابراج محمد الاصيفر في موقع استراتيجي مما يوفر سهولة الوصول الى طرق النقل الرئيسية والمدارس الشهيرة ووجهات التسوق الراقية وعدد كبير من خيارات الترفية سيستمتع السكان براحة كبيره من خيارات الترفية سيستمتع السكان براحة الحصول على كل مايحتاجون إلية في متناول اليد
                                                             </p>
-                                                            <div className="apartments-info-list apartments-info-list-color mt-40">
+                                                            <div className="apartments-info-list apartments-info-list-color mt-40"dir="ltr">
                                                                 <ul>
                                                                     <li>
-                                                                        <label>Total Area</label>
-                                                                        <span>2800 Sq. Ft</span>
+                                                                        <span>المساحة الاجمالية</span>
+                                                                        <label>320</label>
                                                                     </li>
                                                                     <li>
-                                                                        <label>Bedroom</label>
-                                                                        <span>150 Sq. Ft</span>
+                                                                        <span>دورات المياة</span>
+                                                                        <label>5</label>
                                                                     </li>
                                                                     <li>
-                                                                        <label>Bathroom</label>
-                                                                        <span>45 Sq. Ft</span>
+                                                                        <span>غرف النوم </span>
+                                                                        <label>3</label>
                                                                     </li>
                                                                     <li>
-                                                                        <label>Belcony/Pets</label>
-                                                                        <span>Allowed</span>
+                                                                        <span>غرف إضافية</span>
+                                                                        <label>4</label>
                                                                     </li>
                                                                     <li>
-                                                                        <label>Lounge</label>
-                                                                        <span>650 Sq. Ft</span>
+                                                                        <span>عمر العقار</span>
+                                                                        <label>جديد</label>
                                                                     </li>
+                                                                    <li>
+                                                                        <span>الواجهة </span>
+                                                                        <label>غربية     </label>
+                                                                    </li>
+                                                                   
+                                                                   
                                                                 </ul>
                                                             </div>
                                                         </div>
                                                     </Col>
                                                     <Col xs={12} lg={6}>
                                                         <div className="apartments-plan-img">
-                                                            <img src="/img/others/10.png" alt="#" />
+                                                            <img src="/img/فيلل الامير بندر 2.png" alt="#" />
                                                         </div>
                                                     </Col>
                                                 </Row>
@@ -321,45 +323,96 @@ function HomePageFive(props) {
                                         <Tab.Pane eventKey="second">
                                             <div className="ltn__product-tab-content-inner">
                                                 <Row>
-                                                    <Col xs={12} lg={6}>
-                                                        <div className="apartments-plan-info ltn__secondary-bg text-color-white">
-                                                            <h2>Deluxe Portion</h2>
+                                                <Col xs={12} lg={6}>
+                                                        <div className="apartments-plan-info ltn__secondary-bg text-color-white"dir="rtl">
+                                                        <h2>الفلل البانورامية</h2>
                                                             <p>
-                                                                Enimad minim veniam quis nostrud exercitation
-                                                                ullamco laboris. Lorem ipsum dolor sit amet cons
-                                                                aetetur adipisicing elit sedo eiusmod
-                                                                tempor.Incididunt labore et dolore magna aliqua.
-                                                                sed ayd minim veniam.
+                                                              يمثل الاستثمار في ابراج محمد الاصيفر فرصة فريدة لامتلاك عقار مرموق في واحد من اكثر المواقع المرغوبة في الطائف مع موقعة المتميز ومناظره الأستثنائية ,لايعد هذا التطور بنمط حياة فاخر فحسي ,بل يعد ايضا بإمكانية كبيرة لتقدير القيمة
                                                             </p>
-                                                            <div className="apartments-info-list apartments-info-list-color mt-40">
+                                                            <div className="apartments-info-list apartments-info-list-color mt-40"dir="ltr">
                                                                 <ul>
                                                                     <li>
-                                                                        <label>Total Area</label>
-                                                                        <span>2800 Sq. Ft</span>
+                                                                        <span>المساحة الاجمالية</span>
+                                                                        <label>338</label>
                                                                     </li>
                                                                     <li>
-                                                                        <label>Bedroom</label>
-                                                                        <span>150 Sq. Ft</span>
+                                                                        <span>دورات المياة</span>
+                                                                        <label>5</label>
                                                                     </li>
                                                                     <li>
-                                                                        <label>Bathroom</label>
-                                                                        <span>45 Sq. Ft</span>
+                                                                        <span>غرف النوم </span>
+                                                                        <label>3</label>
                                                                     </li>
                                                                     <li>
-                                                                        <label>Belcony/Pets</label>
-                                                                        <span>Allowed</span>
+                                                                        <span>غرف إضافية</span>
+                                                                        <label>4</label>
                                                                     </li>
                                                                     <li>
-                                                                        <label>Lounge</label>
-                                                                        <span>650 Sq. Ft</span>
+                                                                        <span>عمر العقار</span>
+                                                                        <label>جديد</label>
                                                                     </li>
+                                                                    <li>
+                                                                        <span>الواجهة </span>
+                                                                        <label>غربية     </label>
+                                                                    </li>
+                                                                   
+                                                                   
                                                                 </ul>
                                                             </div>
                                                         </div>
                                                     </Col>
                                                     <Col xs={12} lg={6}>
                                                         <div className="apartments-plan-img">
-                                                            <img src="/img/others/10.png" alt="#" />
+                                                            <img src="/img/الفلل البانورامية .png" alt="#" />
+                                                        </div>
+                                                    </Col>
+                                                </Row>
+                                            </div>
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="fourth">
+                                            <div className="ltn__product-tab-content-inner">
+                                                <Row>
+                                                <Col xs={12} lg={6}>
+                                                        <div className="apartments-plan-info ltn__secondary-bg text-color-white"dir="rtl">
+                                                        <h2> فلل السحاب</h2>
+                                                            <p>
+                                                              يمثل الاستثمار في ابراج محمد الاصيفر فرصة فريدة لامتلاك عقار مرموق في واحد من اكثر المواقع المرغوبة في الطائف مع موقعة المتميز ومناظره الأستثنائية ,لايعد هذا التطور بنمط حياة فاخر فحسي ,بل يعد ايضا بإمكانية كبيرة لتقدير القيمة
+                                                            </p>
+                                                            <div className="apartments-info-list apartments-info-list-color mt-40"dir="ltr">
+                                                                <ul>
+                                                                    <li>
+                                                                        <span>المساحة الاجمالية</span>
+                                                                        <label>310</label>
+                                                                    </li>
+                                                                    <li>
+                                                                        <span>دورات المياة</span>
+                                                                        <label>5</label>
+                                                                    </li>
+                                                                    <li>
+                                                                        <span>غرف النوم </span>
+                                                                        <label>3</label>
+                                                                    </li>
+                                                                    <li>
+                                                                        <span>غرف إضافية</span>
+                                                                        <label>4</label>
+                                                                    </li>
+                                                                    <li>
+                                                                        <span>عمر العقار</span>
+                                                                        <label>جديد</label>
+                                                                    </li>
+                                                                    <li>
+                                                                        <span>الواجهة </span>
+                                                                        <label>غربية     </label>
+                                                                    </li>
+                                                                   
+                                                                   
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </Col>
+                                                    <Col xs={12} lg={6}>
+                                                        <div className="apartments-plan-img">
+                                                            <img src="/img/1 فيلل السحاب .png" alt="#" />
                                                         </div>
                                                     </Col>
                                                 </Row>
@@ -369,141 +422,51 @@ function HomePageFive(props) {
                                             <div className="ltn__product-tab-content-inner">
                                                 <Row>
                                                     <Col xs={12} lg={6}>
-                                                        <div className="apartments-plan-info ltn__secondary-bg text-color-white">
-                                                            <h2>Penthouse</h2>
+                                                        <div className="apartments-plan-info ltn__secondary-bg text-color-white"dir="rtl">
+                                                            <h2>شقق بانورامية بالحوش</h2>
                                                             <p>
-                                                                Enimad minim veniam quis nostrud exercitation
-                                                                ullamco laboris. Lorem ipsum dolor sit amet cons
-                                                                aetetur adipisicing elit sedo eiusmod
-                                                                tempor.Incididunt labore et dolore magna aliqua.
-                                                                sed ayd minim veniam.
+                                                              يمثل الاستثمار في ابراج محمد الاصيفر فرصة فريدة لامتلاك عقار مرموق في واحد من اكثر المواقع المرغوبة في الطائف مع موقعة المتميز ومناظره الأستثنائية ,لايعد هذا التطور بنمط حياة فاخر فحسي ,بل يعد ايضا بإمكانية كبيرة لتقدير القيمة
                                                             </p>
-                                                            <div className="apartments-info-list apartments-info-list-color mt-40">
+                                                            <div className="apartments-info-list apartments-info-list-color mt-40"dir="ltr">
                                                                 <ul>
                                                                     <li>
-                                                                        <label>Total Area</label>
-                                                                        <span>2800 Sq. Ft</span>
+                                                                        <span>المساحة الاجمالية</span>
+                                                                        <label>230</label>
                                                                     </li>
                                                                     <li>
-                                                                        <label>Bedroom</label>
-                                                                        <span>150 Sq. Ft</span>
+                                                                        <span>دورات المياة</span>
+                                                                        <label>5</label>
                                                                     </li>
                                                                     <li>
-                                                                        <label>Bathroom</label>
-                                                                        <span>45 Sq. Ft</span>
+                                                                        <span>غرف النوم </span>
+                                                                        <label>3</label>
                                                                     </li>
                                                                     <li>
-                                                                        <label>Belcony/Pets</label>
-                                                                        <span>Allowed</span>
+                                                                        <span>غرف إضافية</span>
+                                                                        <label>4</label>
                                                                     </li>
                                                                     <li>
-                                                                        <label>Lounge</label>
-                                                                        <span>650 Sq. Ft</span>
+                                                                        <span>عمر العقار</span>
+                                                                        <label>جديد</label>
                                                                     </li>
+                                                                    <li>
+                                                                        <span>الواجهة </span>
+                                                                        <label>غربية     </label>
+                                                                    </li>
+                                                                   
+                                                                   
                                                                 </ul>
                                                             </div>
                                                         </div>
                                                     </Col>
                                                     <Col xs={12} lg={6}>
                                                         <div className="apartments-plan-img">
-                                                            <img src="/img/others/10.png" alt="#" />
+                                                            <img src="/img/شقق السحاب 1 .png" alt="#" />
                                                         </div>
                                                     </Col>
+                                                    
                                                 </Row>
-                                            </div>
-                                        </Tab.Pane>
-                                        <Tab.Pane eventKey="fourth">
-                                            <div className="ltn__product-tab-content-inner">
-                                                <Row>
-                                                    <Col xs={12} lg={6}>
-                                                        <div className="apartments-plan-info ltn__secondary-bg text-color-white">
-                                                            <h2>Top Garden</h2>
-                                                            <p>
-                                                                Enimad minim veniam quis nostrud exercitation
-                                                                ullamco laboris. Lorem ipsum dolor sit amet cons
-                                                                aetetur adipisicing elit sedo eiusmod
-                                                                tempor.Incididunt labore et dolore magna aliqua.
-                                                                sed ayd minim veniam.
-                                                            </p>
-                                                            <div className="apartments-info-list apartments-info-list-color mt-40">
-                                                                <ul>
-                                                                    <li>
-                                                                        <label>Total Area</label>
-                                                                        <span>2800 Sq. Ft</span>
-                                                                    </li>
-                                                                    <li>
-                                                                        <label>Bedroom</label>
-                                                                        <span>150 Sq. Ft</span>
-                                                                    </li>
-                                                                    <li>
-                                                                        <label>Bathroom</label>
-                                                                        <span>45 Sq. Ft</span>
-                                                                    </li>
-                                                                    <li>
-                                                                        <label>Belcony/Pets</label>
-                                                                        <span>Allowed</span>
-                                                                    </li>
-                                                                    <li>
-                                                                        <label>Lounge</label>
-                                                                        <span>650 Sq. Ft</span>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </Col>
-                                                    <Col xs={12} lg={6}>
-                                                        <div className="apartments-plan-img">
-                                                            <img src="/img/others/10.png" alt="#" />
-                                                        </div>
-                                                    </Col>
-                                                </Row>
-                                            </div>
-                                        </Tab.Pane>
-                                        <Tab.Pane eventKey="five">
-                                            <div className="ltn__product-tab-content-inner">
-                                                <Row>
-                                                    <Col xs={12} lg={6}>
-                                                        <div className="apartments-plan-info ltn__secondary-bg text-color-white">
-                                                            <h2>Double Height</h2>
-                                                            <p>
-                                                                Enimad minim veniam quis nostrud exercitation
-                                                                ullamco laboris. Lorem ipsum dolor sit amet cons
-                                                                aetetur adipisicing elit sedo eiusmod
-                                                                tempor.Incididunt labore et dolore magna aliqua.
-                                                                sed ayd minim veniam.
-                                                            </p>
-                                                            <div className="apartments-info-list apartments-info-list-color mt-40">
-                                                                <ul>
-                                                                    <li>
-                                                                        <label>Total Area</label>
-                                                                        <span>2800 Sq. Ft</span>
-                                                                    </li>
-                                                                    <li>
-                                                                        <label>Bedroom</label>
-                                                                        <span>150 Sq. Ft</span>
-                                                                    </li>
-                                                                    <li>
-                                                                        <label>Bathroom</label>
-                                                                        <span>45 Sq. Ft</span>
-                                                                    </li>
-                                                                    <li>
-                                                                        <label>Belcony/Pets</label>
-                                                                        <span>Allowed</span>
-                                                                    </li>
-                                                                    <li>
-                                                                        <label>Lounge</label>
-                                                                        <span>650 Sq. Ft</span>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </Col>
-                                                    <Col xs={12} lg={6}>
-                                                        <div className="apartments-plan-img">
-                                                            <img src="/img/others/10.png" alt="#" />
-                                                        </div>
-                                                    </Col>
-                                                </Row>
+                                                
                                             </div>
                                         </Tab.Pane>
                                     </Tab.Content>
@@ -511,16 +474,16 @@ function HomePageFive(props) {
                             </Col>
                         </Row>
                     </Container>
-                </div>
+                </div> 
 
 
                 {/* <!-- VIDEO AREA START --> */}
-                <div className="ltn__video-popup-area">
+                 <div className="ltn__video-popup-area">
                     <VideoBanner />
-                </div>
+                </div> 
                 {/* <!-- VIDEO AREA END --> */}
                 {/* <!-- CATEGORY AREA START -->  */}
-                <div className="ltn__category-area ltn__product-gutter pt-115 pb-90">
+                 <div className="ltn__category-area ltn__product-gutter pt-115 pb-90">
                     <Container>
                         <Row>
                             <Col xs={12}>
@@ -545,7 +508,7 @@ function HomePageFive(props) {
                             })}
                         </Row>
                     </Container>
-                </div>
+                </div> 
                 {/* <!-- CATEGORY AREA END --> */}
 
                 {/* <!-- TESTIMONIAL AREA START (testimonial-7) -->  */}

@@ -88,7 +88,7 @@ function CounterUp() {
                 <h6>إجمالي الإنشاءات</h6>
               </div>
             </Col>
-            {/* <Col xs={12} sm={6} md={3} className="align-self-center">
+            <Col xs={12} sm={6} md={3} className="align-self-center">
               <div className="ltn__counterup-item">
                 <div className="counter-icon">
                   <i className="flaticon-armchair"></i>
@@ -107,9 +107,9 @@ function CounterUp() {
                     />
                   </VisibilityObserver>
                 </h1>
-                <h6>المشاريع المباعه</h6>
+                <h6>المشاريع</h6>
               </div>
-            </Col> */}
+            </Col>
           </Row>
         </Container>
       </div>

@@ -193,7 +193,7 @@ function ProductDetails({ product, buildingTypes, category }) {
 
   return (
     <>
-      <LayoutOne topbar={true}>
+      <LayoutOne topbar={true} >
         <ModalVideo
           channel="youtube"
           autoplay
@@ -203,7 +203,7 @@ function ProductDetails({ product, buildingTypes, category }) {
         />
         {/* <!-- BREADCRUMB AREA START --> */}
 
-        <BreadCrumb style={{ textAlign: "right" }}
+        <BreadCrumb style={{ textAlign: "right" } }
           title="تفاصيل العقار"
           sectionPace="mb-0"
           currentSlug={product.user}
@@ -237,7 +237,7 @@ function ProductDetails({ product, buildingTypes, category }) {
         {/* <!-- IMAGE SLIDER AREA END -->
 
     <!-- SHOP DETAILS AREA START --> */}
-        <div className="ltn__shop-details-area pb-10">
+        <div className="ltn__shop-details-area pb-10" >
           <Container>
             <Row>
               <Col xs={12} lg={8}>
@@ -271,7 +271,7 @@ function ProductDetails({ product, buildingTypes, category }) {
                         <a href="#">
                           <i className="far fa-eye"></i>
                           {product.views}
-                          Views
+                         المشاهدات
                         </a>
                       </li>
                     </ul>
@@ -287,131 +287,54 @@ function ProductDetails({ product, buildingTypes, category }) {
                   <p>{product.fullDescription}</p>
                   <p>{product.shortDescription}</p>
 
-                  <h4 className="title-2">Property Detail</h4>
+                  <h4 className="title-2">التفاصيل</h4>
                   <div className="property-detail-info-list section-bg-1 clearfix mb-60">
                     <ul>
-                      <li>
+                      {/* <li>
                         <label>Property ID:</label>{" "}
                         <span>{product.license_number}</span>
+                      </li> */}
+                      <li>
+                        <label>المساحة: </label>{" "}
+                        <span>{product.max_distance}</span>
                       </li>
                       <li>
-                        <label>Home Area: </label>{" "}
-                        <span>{product.max_distance} sqft</span>
-                      </li>
-                      <li>
-                        <label>Rooms:</label>{" "}
+                        <label>الغرف:</label>{" "}
                         <span>{product.all_rooms}</span>
                       </li>
                       <li>
-                        <label>Baths:</label>{" "}
+                        <label>دورات المياة:</label>{" "}
                         <span>{product.bathrooms_count}</span>
                       </li>
                       <li>
-                        <label>Year built:</label>{" "}
+                        <label>عمر العقار:</label>{" "}
                         <span>{product.age}</span>
                       </li>
                     </ul>
                     <ul>
-                      <li>
+                      {/* <li>
                         <label>Lot Area:</label>{" "}
                         <span>{product.propertyId}</span>
                       </li>
                       <li>
                         <label>Lot dimensions:</label>{" "}
                         <span>{product.area} sqft</span>
-                      </li>
+                      </li> */}
                       <li>
-                        <label>Beds:</label>{" "}
+                        <label>غرف التوم:</label>{" "}
                         <span>{product.bedrooms_count}</span>
                       </li>
                       <li>
-                        <label>Price:</label> <span>{product.max_price}</span>
+                        <label>السعر:</label> <span>{product.max_price}</span>
                       </li>
-                      <li>
+                      {/* <li>
                         <label>Property Status:</label>{" "}
                         <span>{product.status}</span>
-                      </li>
+                      </li> */}
                     </ul>
                   </div>
 
-                  <h4 className="title-2">Facts and Features</h4>
-                  <div className="property-detail-feature-list clearfix mb-45">
-                    <ul>
-                      <li>
-                        <div className="property-detail-feature-list-item">
-                          <i className="flaticon-double-bed"></i>
-                          <div>
-                            <h6>Living Room</h6>
-                            <small>{product.livingRoom}</small>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="property-detail-feature-list-item">
-                          <i className="flaticon-double-bed"></i>
-                          <div>
-                            <h6>Garage</h6>
-                            <small>{product.garage}</small>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="property-detail-feature-list-item">
-                          <i className="flaticon-double-bed"></i>
-                          <div>
-                            <h6>Dining Area</h6>
-                            <small>{product.diningArea}</small>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="property-detail-feature-list-item">
-                          <i className="flaticon-double-bed"></i>
-                          <div>
-                            <h6>Bedroom</h6>
-                            <small>{product.bedrooms_count}</small>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="property-detail-feature-list-item">
-                          <i className="flaticon-double-bed"></i>
-                          <div>
-                            <h6>Bathroom</h6>
-                            <small>{product.bathrooms_count}</small>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="property-detail-feature-list-item">
-                          <i className="flaticon-double-bed"></i>
-                          <div>
-                            <h6>Gym Area</h6>
-                            <small>{product.gymArea}</small>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="property-detail-feature-list-item">
-                          <i className="flaticon-double-bed"></i>
-                          <div>
-                            <h6>Garden</h6>
-                            <small>{product.garden}</small>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="property-detail-feature-list-item">
-                          <i className="flaticon-double-bed"></i>
-                          <div>
-                            <h6>Parking</h6>
-                            <small>{product.parking}</small>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-
+                 
                   {/* <h4 className="title-2">From Our Gallery</h4>
                   <div className="ltn__property-details-gallery mb-30">
                     <div className="row">
@@ -519,7 +442,7 @@ function ProductDetails({ product, buildingTypes, category }) {
                     </div>
                   </div> */}
 
-                  <h4 className="title-2">Location</h4>
+                  <h4 className="title-2">الموقع</h4>
                   <div className="property-details-google-map mb-60">
                     <iframe
                       // src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9334.271551495209!2d${product.long}!3d${product.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b0456b5a2e7%3A0x68bdf865dda0b669!2sBrooklyn%20Botanic%20Garden%20Shop!5e0!3m2!1sen!2sbd!4v1590597267201!5m2!1sen!2sbd`}
@@ -531,255 +454,11 @@ function ProductDetails({ product, buildingTypes, category }) {
                     ></iframe>
                   </div>
 
-                  <h4 className="title-2">Floor Plans</h4>
-                  {/* <!-- APARTMENTS PLAN AREA START --> */}
-
-                  <div className="ltn__apartments-plan-area product-details-apartments-plan mb-60">
-                    <Tab.Container defaultActiveKey="first">
-                      <div className="ltn__tab-menu ltn__tab-menu-3">
-                        <Nav className="nav">
-                          <Nav.Link eventKey="first">First Floor</Nav.Link>
-                          <Nav.Link eventKey="second">Second Floor</Nav.Link>
-                          <Nav.Link eventKey="third">Third Floor</Nav.Link>
-                          <Nav.Link eventKey="fourth">Top Garden</Nav.Link>
-                        </Nav>
-                      </div>
-                      <Tab.Content>
-                        <Tab.Pane eventKey="first">
-                          <div className="ltn__apartments-tab-content-inner">
-                            <div className="row">
-                              <div className="col-lg-7">
-                                <div className="apartments-plan-img">
-                                  <img src="/img/others/10.png" alt="#" />
-                                </div>
-                              </div>
-                              <div className="col-lg-5">
-                                <div className="apartments-plan-info">
-                                  <h2>First Floor</h2>
-                                  <p>
-                                    Enimad minim veniam quis nostrud
-                                    exercitation ullamco laboris. Lorem ipsum
-                                    dolor sit amet cons aetetur adipisicing elit
-                                    sedo eiusmod tempor.Incididunt labore et
-                                    dolore magna aliqua. sed ayd minim veniam.
-                                  </p>
-                                </div>
-                              </div>
-                              <div className="col-lg-12">
-                                <div className="product-details-apartments-info-list  section-bg-1">
-                                  <div className="row">
-                                    <div className="col-lg-6">
-                                      <div className="apartments-info-list apartments-info-list-color">
-                                        <ul>
-                                          <li>
-                                            <label>Total Area</label>{" "}
-                                            <span>2800 Sq. Ft</span>
-                                          </li>
-                                          <li>
-                                            <label>Bedroom</label>{" "}
-                                            <span>150 Sq. Ft</span>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                    <div className="col-lg-6">
-                                      <div className="apartments-info-list apartments-info-list-color">
-                                        <ul>
-                                          <li>
-                                            <label>Belcony/Pets</label>
-                                            <span>Allowed</span>
-                                          </li>
-                                          <li>
-                                            <label>Lounge</label>
-                                            <span>650 Sq. Ft</span>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </Tab.Pane>
-                        <Tab.Pane eventKey="second">
-                          <div className="ltn__product-tab-content-inner">
-                            <div className="row">
-                              <div className="col-lg-7">
-                                <div className="apartments-plan-img">
-                                  <img src="/img/others/10.png" alt="#" />
-                                </div>
-                              </div>
-                              <div className="col-lg-5">
-                                <div className="apartments-plan-info">
-                                  <h2>Second Floor</h2>
-                                  <p>
-                                    Enimad minim veniam quis nostrud
-                                    exercitation ullamco laboris. Lorem ipsum
-                                    dolor sit amet cons aetetur adipisicing elit
-                                    sedo eiusmod tempor.Incididunt labore et
-                                    dolore magna aliqua. sed ayd minim veniam.
-                                  </p>
-                                </div>
-                              </div>
-                              <div className="col-lg-12">
-                                <div className="product-details-apartments-info-list  section-bg-1">
-                                  <div className="row">
-                                    <div className="col-lg-6">
-                                      <div className="apartments-info-list apartments-info-list-color">
-                                        <ul>
-                                          <li>
-                                            <label>Total Area</label>{" "}
-                                            <span>2800 Sq. Ft</span>
-                                          </li>
-                                          <li>
-                                            <label>Bedroom</label>{" "}
-                                            <span>150 Sq. Ft</span>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                    <div className="col-lg-6">
-                                      <div className="apartments-info-list apartments-info-list-color">
-                                        <ul>
-                                          <li>
-                                            <label>Belcony/Pets</label>{" "}
-                                            <span>Allowed</span>
-                                          </li>
-                                          <li>
-                                            <label>Lounge</label>{" "}
-                                            <span>650 Sq. Ft</span>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </Tab.Pane>
-                        <Tab.Pane eventKey="third">
-                          <div className="ltn__product-tab-content-inner">
-                            <div className="row">
-                              <div className="col-lg-7">
-                                <div className="apartments-plan-img">
-                                  <img src="/img/others/10.png" alt="#" />
-                                </div>
-                              </div>
-                              <div className="col-lg-5">
-                                <div className="apartments-plan-info">
-                                  <h2>Third Floor</h2>
-                                  <p>
-                                    Enimad minim veniam quis nostrud
-                                    exercitation ullamco laboris. Lorem ipsum
-                                    dolor sit amet cons aetetur adipisicing elit
-                                    sedo eiusmod tempor.Incididunt labore et
-                                    dolore magna aliqua. sed ayd minim veniam.
-                                  </p>
-                                </div>
-                              </div>
-                              <div className="col-lg-12">
-                                <div className="product-details-apartments-info-list  section-bg-1">
-                                  <div className="row">
-                                    <div className="col-lg-6">
-                                      <div className="apartments-info-list apartments-info-list-color">
-                                        <ul>
-                                          <li>
-                                            <label>Total Area</label>{" "}
-                                            <span>2800 Sq. Ft</span>
-                                          </li>
-                                          <li>
-                                            <label>Bedroom</label>{" "}
-                                            <span>150 Sq. Ft</span>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                    <div className="col-lg-6">
-                                      <div className="apartments-info-list apartments-info-list-color">
-                                        <ul>
-                                          <li>
-                                            <label>Belcony/Pets</label>{" "}
-                                            <span>Allowed</span>
-                                          </li>
-                                          <li>
-                                            <label>Lounge</label>{" "}
-                                            <span>650 Sq. Ft</span>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </Tab.Pane>
-                        <Tab.Pane eventKey="fourth">
-                          <div className="ltn__product-tab-content-inner">
-                            <div className="row">
-                              <div className="col-lg-7">
-                                <div className="apartments-plan-img">
-                                  <img src="/img/others/10.png" alt="#" />
-                                </div>
-                              </div>
-                              <div className="col-lg-5">
-                                <div className="apartments-plan-info">
-                                  <h2>Top Garden</h2>
-                                  <p>
-                                    Enimad minim veniam quis nostrud
-                                    exercitation ullamco laboris. Lorem ipsum
-                                    dolor sit amet cons aetetur adipisicing elit
-                                    sedo eiusmod tempor.Incididunt labore et
-                                    dolore magna aliqua. sed ayd minim veniam.
-                                  </p>
-                                </div>
-                              </div>
-                              <div className="col-lg-12">
-                                <div className="product-details-apartments-info-list  section-bg-1">
-                                  <div className="row">
-                                    <div className="col-lg-6">
-                                      <div className="apartments-info-list apartments-info-list-color">
-                                        <ul>
-                                          <li>
-                                            <label>Total Area</label>{" "}
-                                            <span>2800 Sq. Ft</span>
-                                          </li>
-                                          <li>
-                                            <label>Bedroom</label>{" "}
-                                            <span>150 Sq. Ft</span>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                    <div className="col-lg-6">
-                                      <div className="apartments-info-list apartments-info-list-color">
-                                        <ul>
-                                          <li>
-                                            <label>Belcony/Pets</label>{" "}
-                                            <span>Allowed</span>
-                                          </li>
-                                          <li>
-                                            <label>Lounge</label>{" "}
-                                            <span>650 Sq. Ft</span>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </Tab.Pane>
-                      </Tab.Content>
-                    </Tab.Container>
-                  </div>
+                
 
                   {/* <!-- APARTMENTS PLAN AREA END --> */}
 
-                  <h4 className="title-2">Property Video</h4>
+                  <h4 className="title-2">فيديو للعقار</h4>
                   <div
                     className="ltn__video-bg-img ltn__video-popup-height-500 bg-overlay-black-50 bg-image mb-60"
                     style={{ backgroundImage: `url("${product.icon}")` }}
@@ -1065,7 +744,7 @@ function ProductDetails({ product, buildingTypes, category }) {
                     </div>
                   </div> */}
 
-                  <h4 className="title-2">Related Properties</h4>
+                  <h4 className="title-2">عقارات مشابهه</h4>
                   <Row>
                     {(relatedProducts ?? []).map((data, key) => {
                       const slug = data.id;
@@ -1213,212 +892,7 @@ function ProductDetails({ product, buildingTypes, category }) {
                     </form>
                   </div> */}
                   {/* <!-- Form Widget --> */}
-                  <div className="widget ltn__form-widget">
-                    <h4 className="ltn__widget-title ltn__widget-title-border-2">
-                      Drop Messege For Book
-                    </h4>
-                    <form action="#">
-                      <input
-                        type="text"
-                        name="yourname"
-                        placeholder="Your Name*"
-                      />
-                      <input
-                        type="text"
-                        name="youremail"
-                        placeholder="Your e-Mail*"
-                      />
-                      <textarea
-                        name="yourmessage"
-                        placeholder="Write Message..."
-                      ></textarea>
-                      <button type="submit" className="btn theme-btn-1">
-                        Send Messege
-                      </button>
-                    </form>
-                  </div>
-                  {/* <!-- Top Rated Product Widget --> */}
-                  {/* <div className="widget ltn__top-rated-product-widget">
-                    <h4 className="ltn__widget-title ltn__widget-title-border-2">
-                      Top Rated Product
-                    </h4>
-                    <ul>
-                      {(topRatedProducts ?? []).map((product, keys) => {
-                        const slug = productSlug(product.title);
-                        let key = keys + 1;
-                        return (
-                          <li key={product.id}>
-                            <div className="top-rated-product-item clearfix">
-                              <div className="top-rated-product-img">
-                                <a href={`/shop/${slug}`}>
-                                  <img
-                                    src={`/img/product/${key}.png`}
-                                    alt={product.title}
-                                  />
-                                </a>
-                              </div>
-                              <div className="top-rated-product-info">
-                                <div className="product-ratting">
-                                  <ul>
-                                    <li>
-                                      <a href="#">
-                                        <FaStar />
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a href="#">
-                                        <FaStar />
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a href="#">
-                                        <FaStar />
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a href="#">
-                                        <FaStar />
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a href="#">
-                                        <FaStar />
-                                      </a>
-                                    </li>
-                                  </ul>
-                                </div>
-                                <h6>
-                                  <a href={`/shop/${slug}`}>{product.title}</a>
-                                </h6>
-                                <div className="product-price">
-                                  <span>{product.price}</span>
-                                  <del>{discountedPrice}</del>
-                                </div>
-                              </div>
-                            </div>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div> */}
-                  {/* <!-- Menu Widget (Category) --> */}
-                  <div className="widget ltn__menu-widget ltn__menu-widget-2--- ltn__menu-widget-2-color-2---">
-                    <h4 className="ltn__widget-title ltn__widget-title-border-2">
-                      Top Categories
-                    </h4>
-                    <ul>
-                      {
-                        buildingTypes.map((bt, index) => {
-                          return (
-                            <li key={String(index)}>
-                              <Link href="#">
-                                {bt.name}
-                                {/* <span>(30)</span> */}
-                              </Link>
-                            </li>
-                          )
-                        })
-                      }
-                      {/* <li>
-                        <Link href="#">
-                          Picture Stodio <span>(30)</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="#">
-                          Office <span>(71)</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="#">
-                          Luxary Vilas <span>(56)</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="#">
-                          Duplex House <span>(60)</span>
-                        </Link>
-                      </li> */}
-                    </ul>
-                  </div>
-                  {/* <!-- Popular Product Widget --> */}
-                  <div className="widget ltn__popular-product-widget">
-                    <h4 className="ltn__widget-title ltn__widget-title-border-2">
-                      Popular Properties
-                    </h4>
-
-                    <Slider
-                      {...popular_product}
-                      className="row ltn__popular-product-widget-active slick-arrow-1"
-                    >
-                      {/* <!-- ltn__product-item --> */}
-
-                      {(popularProducts ?? []).map((product, key) => {
-                        const slug = productSlug(product.title);
-                        return (
-                          <div
-                            key={key}
-                            className="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---"
-                          >
-                            <div className="product-img">
-                              <Link href={`/shop/${slug}`}>
-                                <img
-                                  src={`/img/product-3/${product.productImg}`}
-                                  alt={slug}
-                                />
-                              </Link>
-                              <div className="real-estate-agent">
-                                <div className="agent-img">
-                                  <Link href="#">
-                                    <img src={`/img/blog/author.jpg`} alt="#" />
-                                  </Link>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="product-info">
-                              <div className="product-price">
-                                <span>
-                                  ${product.price}
-                                  <label>/Month</label>
-                                </span>
-                              </div>
-                              <h2 className="product-title">
-                                <Link href={`/shop/${slug}`}>
-                                  {product.title}
-                                </Link>
-                              </h2>
-                              <div className="product-img-location">
-                                <ul>
-                                  <li>
-                                    <Link href="product-details">
-                                      <i className="flaticon-pin"></i>
-                                      {product.locantion}
-                                    </Link>
-                                  </li>
-                                </ul>
-                              </div>
-                              <ul className="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
-                                <li>
-                                  <span>
-                                    {product.bedrooms}
-                                  </span>
-                                  <span className="ms-1">Bedrooms</span>
-                                </li>
-                                <li>
-                                  <span>{product.baths}</span>
-                                  <span className="ms-1">Bathrooms</span>
-                                </li>
-                                <li>
-                                  <span>{product.area}</span>
-                                  <span className="ms-1">square Ft</span>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </Slider>
-                  </div>
+                
                   {/* <!-- Popular Post Widget --> */}
                   {/* <div className="widget ltn__popular-post-widget">
                     <h4 className="ltn__widget-title ltn__widget-title-border-2">
@@ -1466,7 +940,6 @@ function ProductDetails({ product, buildingTypes, category }) {
                     </ul>
                   </div> */}
 
-                  <FollowUs title="Follow Us" />
 
                   {/* <!-- Tagcloud Widget --> */}
 

@@ -59,7 +59,7 @@ function AboutUsStyleOne({ sectionSpace }) {
                   </li>
                   <li>
                     <i className="flaticon-heart"></i>
-                  نظام أمني لدخول البرج 
+                  نظام أمني لدخول 
                   </li>
                   <li>
                     <i className="flaticon-secure"></i>
