@@ -159,7 +159,7 @@ function AboutUs() {
           currentSlug="من نحن"
         />
 
-        {/* <AboutUsStyleTwo sectionSpace="pb-90" /> */}
+        <AboutUsStyleTwo sectionSpace="pb-90" />
 
         <Feature
           classes="section-bg-1"
