@@ -133,6 +133,11 @@ function ShopRightSideBar() {
       <div className="ltn__product-area ltn__product-gutter mb-120" >
         <Container>
           <Row>
+
+            <Col xs={12} lg={4}>
+              <SideBar products={products} getSortParams={getSortParams} filterHandler={filterHandler} />
+            </Col>
+
             <Col xs={12} lg={8}>
               <Tab.Container defaultActiveKey="first">
                 <div className="ltn__shop-options">
@@ -167,7 +172,7 @@ function ShopRightSideBar() {
                                 [1, 2, 3, 4, 5, 6].map((aqar, key) => {
                                   return (<>
                                     <Col key={key} xs={12} sm={6}>
-                                    <Skeleton variant="rectangular" width={350} height={400} style={{margin:"10px"}} key={key} />
+                                      <Skeleton variant="rectangular" width={350} height={400} style={{ margin: "10px" }} key={key} />
                                     </Col>
                                   </>)
                                 })
@@ -202,7 +207,7 @@ function ShopRightSideBar() {
                                 [1, 2, 3, 4, 5, 6].map((aqar, key) => {
                                   return (<>
                                     <Col key={key} xs={12} sm={6}>
-                                      <Skeleton variant="rectangular" width={350} height={400} style={{margin:"10px"}} key={key} />
+                                      <Skeleton variant="rectangular" width={350} height={400} style={{ margin: "10px" }} key={key} />
                                     </Col>
                                   </>)
                                 })
@@ -253,9 +258,7 @@ function ShopRightSideBar() {
                 />
               </div>
             </Col>
-            <Col xs={12} lg={4}>
-              <SideBar products={products} getSortParams={getSortParams} filterHandler={filterHandler} />
-            </Col>
+
           </Row>
         </Container>
       </div>

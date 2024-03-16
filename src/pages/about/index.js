@@ -1,6 +1,6 @@
 import { LayoutOne } from "@/layouts";
 import { Container, Row, Col } from "react-bootstrap";
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import { FaArrowRight, FaArrowLeft, FaAngleDoubleRight, FaAngleDoubleLeft } from "react-icons/fa";
 import Slider from "react-slick";
 import { getProducts, productSlug } from "@/lib/product";
 import TitleSection from "@/components/titleSection";
@@ -15,15 +15,52 @@ import Feature from "@/components/features";
 import featureData from "@/data/service"
 import TeamItem from "@/components/team";
 import TeamData from '@/data/team';
-import playistItem from "@/data/playlistItems.json";
+// import playistItem from "@/data/playlistItems.json";
 import VideoItem from "@/components/aboutUs/videoItem";
 import AboutUsStyleTwo from "@/components/aboutUs/aboutUsStyleTwo";
-
-
+import { useEffect, useMemo, useState } from "react";
+import VimeoService from "@/api/services/VimeoService";
+import ReactPaginate from "react-paginate";
+import { Skeleton } from "@mui/material";
 
 function AboutUs() {
   const agents = getProducts(TeamData, "buying", "featured", 3);
   const featureDataSorted = getProducts(featureData, "buying", "featured", 3);
+
+  const [videos, setVideos] = useState();
+  const [loading, setLoading] = useState(false);
+
+  const [currentUrl, setCurrentUrl] = useState(null);
+
+  const enableNext = useMemo(() => {
+    if (!videos) return false;
+    return currentUrl != videos?.paging?.last
+  }, [videos, currentUrl])
+
+  const enablePrev = useMemo(() => {
+    if (!videos) return false;
+    return videos.paging.previous !== null
+  }, [videos, currentUrl])
+
+  function feachVideos(param) {
+    VimeoService.getAll({
+      paginationUrl: (!param || !param.url) ? undefined : param.url,
+      onBefore: () => {
+        setLoading(true)
+      },
+      onSuccess: (response) => {
+        setVideos(response)
+        setCurrentUrl(param.url)
+      },
+      onFinally: () => {
+        setLoading(false)
+      }
+    })
+  }
+  useEffect(() => {
+    feachVideos()
+  }, [])
+
 
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
     <button
@@ -53,6 +90,8 @@ function AboutUs() {
       <FaArrowRight />
     </button>
   );
+
+
 
   const testiMonialsettings = {
     dots: false,
@@ -146,20 +185,42 @@ function AboutUs() {
               </Col>
             </Row>
             <Row>
-              {playistItem.items.map((product, key) => {
-                return (
-                  <Col key={key} xs={12} sm={6} lg={4} >
-                    <VideoItem
-                      key={product.id}
-                      image={product.snippet.thumbnails.medium.url}
-                      title={product.snippet.title}
-                      videoId={product.snippet.resourceId.videoId}
-                      additionalClassname="relative"
-                    // url={`https://www.youtube.com/watch?v=${product.snippet.resourceId.videoId}`}
-                    />
-                  </Col>
-                );
-              })}
+              <>
+                {
+                  loading ? <>
+                    <Col xs={12}>
+                      <Row>
+                        <Col>
+                          <Skeleton variant="rectangular" width={350} height={400} style={{ margin: "10px" }} />
+                        </Col>
+                        <Col>
+                          <Skeleton variant="rectangular" width={350} height={400} style={{ margin: "10px" }} />
+                        </Col>
+                        <Col>
+                          <Skeleton variant="rectangular" width={350} height={400} style={{ margin: "10px" }} />
+                        </Col>
+                      </Row>
+                    </Col>
+                  </> : <>
+                    {((videos?.data) ?? []).map((video, key) => {
+                      return (
+                        <Col key={key} xs={12} sm={6} lg={4} >
+                          <VideoItem
+                            key={key}
+                            uri={video.uri}
+                            image={video.pictures.base_link}
+                            title={video.name}
+                            additionalClassname="relative"
+                          />
+                        </Col>
+                      );
+                    })}
+                  </>
+
+                }
+
+              </>
+
               {/* {agents.map((data, key) => {
                 const slug = productSlug(data.name);
                 return (
@@ -169,6 +230,34 @@ function AboutUs() {
                 );
               })} */}
             </Row>
+
+            <div className="ltn__pagination-area text-center">
+              <ReactPaginate
+                nextLabel={<FaAngleDoubleRight className={`${!enableNext ? 'disable-cursor' : ''}`} onClick={() => {
+
+                  if (enableNext) {
+                    feachVideos({ url: videos?.paging?.next })
+                  }
+                }} />}
+                previousLabel={<FaAngleDoubleLeft className={`${!enablePrev ? 'disable-cursor' : ''}`} onClick={() => {
+                  if (enablePrev) {
+                    feachVideos({ url: videos?.paging?.previous })
+                  }
+                }} />}
+                pageClassName="page-item"
+                pageLinkClassName="page-link"
+                previousClassName="page-item"
+                previousLinkClassName="page-link"
+                nextClassName="page-item"
+                nextLinkClassName="page-link"
+                breakLabel="..."
+                breakClassName="page-item"
+                breakLinkClassName="page-link"
+                containerClassName="pagination ltn__pagination justify-content-center"
+                activeClassName="active"
+                renderOnZeroPageCount={null}
+              />
+            </div>
 
 
           </Container>
@@ -217,6 +306,7 @@ function AboutUs() {
             </Row>
           </Container>
         </div>
+
       </LayoutOne>
     </>
   );

@@ -19,24 +19,47 @@ export interface ApiCallMethodFunctionsInterface<ResponseInterface> {
     onFinally?: () => void
 }
 
-export const apiCall = <ResponseInterface, BobyInterface>({ method, onBefore, onSuccess, onStatusCodeError, onFinally }: ApiCallInterface<ResponseInterface, BobyInterface>) => {
-    if (onBefore) {
-        onBefore()
-    }
-    method().then(response => {
-        if (onSuccess) {
-            onSuccess(response.data)
+export const apiCall = async <ResponseInterface, BobyInterface>({ method, onBefore, onSuccess, onStatusCodeError, onFinally }: ApiCallInterface<ResponseInterface, BobyInterface>) => {
+
+    try {
+        if (onBefore) {
+            onBefore();
         }
-    })
-        .catch(error => {
-            httpErrorHandler(error, {
-                onStatusCode: function (status: number): void {
-                    if (onStatusCodeError) {
-                        onStatusCodeError(status, error.response.data)
-                    }
-                },
-            })
-        }).finally(onFinally);
+        const response = await method();
+
+        if (onSuccess) {
+            onSuccess(response.data);
+        }
+    } catch (error) {
+        httpErrorHandler(error, {
+            onStatusCode: function (status: number): void {
+                if (onStatusCodeError) {
+                    onStatusCodeError(status, error.response.data);
+                }
+            },
+        });
+    } finally {
+        if (onFinally) {
+            onFinally();
+        }
+    }
+    // if (onBefore) {
+    //     onBefore()
+    // }
+    // method().then(response => {
+    //     if (onSuccess) {
+    //         onSuccess(response.data)
+    //     }
+    // })
+    //     .catch(error => {
+    //         httpErrorHandler(error, {
+    //             onStatusCode: function (status: number): void {
+    //                 if (onStatusCodeError) {
+    //                     onStatusCodeError(status, error.response.data)
+    //                 }
+    //             },
+    //         })
+    //     }).finally(onFinally);
 }
 
 export const buildUrlWithParams = <DataType>(URL: string, data: DataType): string => {
