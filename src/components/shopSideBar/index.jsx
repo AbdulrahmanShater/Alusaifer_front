@@ -73,7 +73,7 @@ const SideBar = ({ products, getSortParams, filterHandler }) => {
           >
             {
               hooksBuildingType.buildingTypes.map((buildingType) => {
-                return <FormControlLabel value={String(buildingType.id)} control={<Radio />} label={buildingType.name} />
+                return < FormControlLabel key={buildingType.id} value={String(buildingType.id)} control={<Radio />} label={buildingType.name} />
               })
             }
           </RadioGroup>
