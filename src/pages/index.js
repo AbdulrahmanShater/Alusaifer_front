@@ -166,29 +166,6 @@ function HomePageFive(props) {
 
       <!-- COUNTER UP AREA START --> */}
                 <CounterUp />
-               
-                <Feature
-                    classes="section-bg-1"
-                    servicebtn={true}
-                    iconTag={false}
-                    data={featureData}
-                    headingClasses="section-subtitle-2"
-                    titleSectionData={{
-                        sectionClasses: "text-center",
-                        subTitle: "خدماتنا",
-                      
-                    }}
-                />
-
-                {/* {
-                    [].map((bt) => {
-
-                        return
-                      
-                    })
-                } */}
-                {/* PRODUCT SLIDER AREA END */}
-
                 <div className="ltn__apartments-plan-area pb-70">
                     <Container>
                         <Row>
@@ -419,6 +396,29 @@ function HomePageFive(props) {
                     </Container>
                 </div> 
                 {/* PRODUCT SLIDER AREA START */}
+                <Feature
+                    classes="section-bg-1"
+                    servicebtn={true}
+                    iconTag={false}
+                    data={featureData}
+                    headingClasses="section-subtitle-2"
+                    titleSectionData={{
+                        sectionClasses: "text-center",
+                        subTitle: "خدماتنا",
+                      
+                    }}
+                />
+
+                {/* {
+                    [].map((bt) => {
+
+                        return
+                      
+                    })
+                } */}
+                {/* PRODUCT SLIDER AREA END */}
+
+                
                 {
                     hooksBuildingType.buildingTypes.map((bt,index) => {
                         return <div className="ltn__product-slider-area ltn__product-gutter pt-115 pb-90 plr--7" key={String(index)}>
