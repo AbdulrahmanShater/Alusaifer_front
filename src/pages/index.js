@@ -474,7 +474,7 @@ function HomePageFive(props) {
  {/* <!-- COUNTER UP AREA END -->
 
       <!-- ABOUT US AREA START --> */}
-                <AboutUsStyleTwo sectionSpace="pt-120 pb-90" />
+                {/* <AboutUsStyleTwo sectionSpace="pt-120 pb-90" /> */}
                 {/* <!-- ABOUT US AREA END -->
 
       <!-- FEATURE AREA START ( Feature - 6) --> */}
