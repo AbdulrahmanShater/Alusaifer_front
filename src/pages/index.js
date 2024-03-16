@@ -166,13 +166,7 @@ function HomePageFive(props) {
 
       <!-- COUNTER UP AREA START --> */}
                 <CounterUp />
-                {/* <!-- COUNTER UP AREA END -->
-
-      <!-- ABOUT US AREA START --> */}
-                <AboutUsStyleTwo sectionSpace="pt-120 pb-90" />
-                {/* <!-- ABOUT US AREA END -->
-
-      <!-- FEATURE AREA START ( Feature - 6) --> */}
+               
                 <Feature
                     classes="section-bg-1"
                     servicebtn={true}
@@ -185,58 +179,7 @@ function HomePageFive(props) {
                       
                     }}
                 />
-                {/* PRODUCT SLIDER AREA START */}
-                {
-                    hooksBuildingType.buildingTypes.map((bt,index) => {
-                        return <div className="ltn__product-slider-area ltn__product-gutter pt-115 pb-90 plr--7" key={String(index)}>
-                            <Container fluid>
-                                <Row>
-                                    <Col lg={12}>
-                                        <TitleSection
-                                            sectionClasses="text-center"
-                                            headingClasses="section-subtitle-2"
-                                            titleSectionData={{
-                                                subTitle: "عقاراتنا",
-                                                title: bt.name,
-                                            }}
-                                        />
-                                    </Col>
-                                </Row>
 
-                                <Row>
-                                    <Col lg={12}>
-                                        {
-                                            // !!featuredProducts?.length
-                                            !!bt.aqars.data?.length
-                                                ? (
-                                                    <Slider
-                                                        {...productCarouselsettings}
-                                                        className="ltn__product-slider-item-four-active-full-width slick-arrow-1"
-                                                    >
-                                                        {bt.aqars.data.map((product, key) => {
-                                                            return (
-                                                                <ProductItem
-                                                                    key={product.id}
-                                                                    productData={product}
-                                                                    slug={''}
-                                                                    baseUrl="shop"
-                                                                    discountedPrice={0}
-                                                                    // discountedPrice={discountedPrice}
-                                                                    productPrice={0}
-                                                                    cartItem={cartItems[0]}
-                                                                    wishlistItem={wishlistItems[0]}
-                                                                    compareItem={compareItems[0]}
-                                                                />
-                                                            );
-                                                        })}
-                                                    </Slider>
-                                                ) : null}
-                                    </Col>
-                                </Row>
-                            </Container>
-                        </div>
-                    })
-                }
                 {/* {
                     [].map((bt) => {
 
@@ -475,7 +418,66 @@ function HomePageFive(props) {
                         </Row>
                     </Container>
                 </div> 
+                {/* PRODUCT SLIDER AREA START */}
+                {
+                    hooksBuildingType.buildingTypes.map((bt,index) => {
+                        return <div className="ltn__product-slider-area ltn__product-gutter pt-115 pb-90 plr--7" key={String(index)}>
+                            <Container fluid>
+                                <Row>
+                                    <Col lg={12}>
+                                        <TitleSection
+                                            sectionClasses="text-center"
+                                            headingClasses="section-subtitle-2"
+                                            titleSectionData={{
+                                                subTitle: "عقاراتنا",
+                                                title: bt.name,
+                                            }}
+                                        />
+                                    </Col>
+                                </Row>
 
+                                <Row>
+                                    <Col lg={12}>
+                                        {
+                                            // !!featuredProducts?.length
+                                            !!bt.aqars.data?.length
+                                                ? (
+                                                    <Slider
+                                                        {...productCarouselsettings}
+                                                        className="ltn__product-slider-item-four-active-full-width slick-arrow-1"
+                                                    >
+                                                        {bt.aqars.data.map((product, key) => {
+                                                            return (
+                                                                <ProductItem
+                                                                    key={product.id}
+                                                                    productData={product}
+                                                                    slug={''}
+                                                                    baseUrl="shop"
+                                                                    discountedPrice={0}
+                                                                    // discountedPrice={discountedPrice}
+                                                                    productPrice={0}
+                                                                    cartItem={cartItems[0]}
+                                                                    wishlistItem={wishlistItems[0]}
+                                                                    compareItem={compareItems[0]}
+                                                                />
+                                                            );
+                                                        })}
+                                                    </Slider>
+                                                ) : null}
+                                    </Col>
+                                </Row>
+                            </Container>
+                        </div>
+                    })
+                }
+                
+ {/* <!-- COUNTER UP AREA END -->
+
+      <!-- ABOUT US AREA START --> */}
+                <AboutUsStyleTwo sectionSpace="pt-120 pb-90" />
+                {/* <!-- ABOUT US AREA END -->
+
+      <!-- FEATURE AREA START ( Feature - 6) --> */}
 
                 {/* <!-- VIDEO AREA START --> */}
                  <div className="ltn__video-popup-area">

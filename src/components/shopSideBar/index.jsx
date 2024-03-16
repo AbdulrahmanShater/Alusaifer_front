@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import {
   getIndividualAminities,
@@ -62,24 +62,15 @@ const SideBar = ({ products, getSortParams, filterHandler }) => {
         <div className="widget ltn__menu-widget">
           <h4 className="ltn__widget-title">{"نوع العقار"}</h4>
 
-          <RadioGroup
-            style={{
-              direction: "rtl"
-            }}
-            value={String(searchData.buildingType)}
-            onChange={(event) => {
-              inputHandelerForce(event.target.value, "buildingtype");
-            }}
-          >
-            {
-              hooksBuildingType.buildingTypes.map((buildingType) => {
-                return < FormControlLabel key={buildingType.id} value={String(buildingType.id)} control={<Radio />} label={buildingType.name} />
-              })
-            }
-          </RadioGroup>
-          {/* {hooksBuildingType.buildingTypes.length > 0 ? (
+          {hooksBuildingType.buildingTypes.length > 0 ? (
             <>
-              <ul>
+              <RadioGroup
+                style={{ direction: 'rtl' }}
+                value={searchData.buildingType}
+                onChange={(event) => {
+                  inputHandelerForce(event.target.value, 'buildingtype');
+                }}
+              >
                 {hooksBuildingType.buildingTypes &&
                   hooksBuildingType.buildingTypes.map((buildingType, key) => {
 
@@ -90,31 +81,35 @@ const SideBar = ({ products, getSortParams, filterHandler }) => {
                       }
                     }
 
-                    return (
-                      <li key={key}>
-                        <div>
-                          <label className="checkbox-item" style={{ display: "flex", flexDirection: "row-reverse" }}>
-                            {buildingType.name}
-                            <input
-                              onClick={(e) => {
-                                inputHandelerForce(buildingType.id, "buildingtype");
-                              }}
-                              checked={checked}
-                              type="checkbox"
-                            />
-                            <span className="checkmark"></span>
-                          </label>
-                          <span className="categorey-no">
-                          </span>
-                        </div>
-                      </li>
-                    );
+                    return <FormControlLabel key={key} value={buildingType.id} control={<Radio />} label={buildingType.name} />
+                    // return (
+                    //   <li key={key}>
+                    //     <div>
+                    //       <label className="checkbox-item" style={{ display: "flex", flexDirection: "row-reverse" }}>
+                    //         {buildingType.name}
+                    //         <input
+                    //           onClick={(e) => {
+                    //             inputHandelerForce(buildingType.id, "buildingtype");
+                    //             // getSortParams("propertyTypes", buildingType.name);
+                    //             // setActiveSort(e);
+                    //           }}
+                    //           checked={checked}
+                    //           type="checkbox"
+                    //         />
+                    //         <span className="checkmark"></span>
+                    //       </label>
+                    //       <span className="categorey-no">
+                    //         {/* {products[key < aminities.length ? key : 1].price} */}
+                    //       </span>
+                    //     </div>
+                    //   </li>
+                    // );
                   })}
-              </ul>
+              </RadioGroup>
             </>
           ) : (
             "No categories found"
-          )} */}
+          )}
 
           {/* <hr />
           <h4 className="ltn__widget-title">Amenities</h4>
@@ -187,18 +182,15 @@ const SideBar = ({ products, getSortParams, filterHandler }) => {
 
           <hr />
 
-
           <RadioGroup
-            style={{
-              direction: "rtl"
-            }}
-            value={Number(searchData.from_dashboard)}
+            style={{ direction: 'rtl' }}
+            value={searchData.from_dashboard}
             onChange={(event) => {
-              inputHandelerForce(event.target.value, "from_dashboard");
+              inputHandelerForce(event.target.value, 'from_dashboard');
             }}
           >
-            <FormControlLabel value={Number(1)} control={<Radio />} label={"مشاريع الشركة"} />
-            <FormControlLabel value={Number(0)} control={<Radio />} label={"مشاريع التسويق الخارجي"} />
+            <FormControlLabel value={1} control={<Radio />} label="مشارع الشركة" />
+            <FormControlLabel value={0} control={<Radio />} label="مشاريع التسويق الخارجي" />
           </RadioGroup>
 
           <hr />
@@ -280,6 +272,7 @@ const SideBar = ({ products, getSortParams, filterHandler }) => {
                           type={inp.type}
                           min={inp.min}
                           name={inp.name}
+                          value={searchData[inp.name]}
                           onChange={inputHandeler}
                           placeholder={inp.title}
                         />

@@ -32,19 +32,24 @@ function AboutUs() {
 
   const [currentUrl, setCurrentUrl] = useState(null);
 
-  const enableNext = useMemo(() => {
-    if (!videos) return false;
-    return currentUrl != videos?.paging?.last
-  }, [videos, currentUrl])
+  // const enableNext = useMemo(() => {
+  //   if (!videos) return false;
+  //   return currentUrl != videos?.paging?.last
+  // }, [videos, currentUrl])
 
-  const enablePrev = useMemo(() => {
-    if (!videos) return false;
-    return videos.paging.previous !== null
-  }, [videos, currentUrl])
+  // const enablePrev = useMemo(() => {
+  //   console.log("enablePrev")
+  //   console.log(videos)
+  //   console.log(videos.paging.previous)
+  //   if (!videos) return false;
+  //   console.log(videos.paging.previous !== null)
+  //   return videos.paging.previous !== null
+  // }, [videos])
 
   function feachVideos(param) {
+
     VimeoService.getAll({
-      paginationUrl: (!param || !param.url) ? undefined : param.url,
+      paginationUrl: (!param || !param.url || param.url == null) ? undefined : param.url,
       onBefore: () => {
         setLoading(true)
       },
@@ -154,7 +159,7 @@ function AboutUs() {
           currentSlug="من نحن"
         />
 
-        <AboutUsStyleTwo sectionSpace="pb-90" />
+        {/* <AboutUsStyleTwo sectionSpace="pb-90" /> */}
 
         <Feature
           classes="section-bg-1"
@@ -233,16 +238,11 @@ function AboutUs() {
 
             <div className="ltn__pagination-area text-center">
               <ReactPaginate
-                nextLabel={<FaAngleDoubleRight className={`${!enableNext ? 'disable-cursor' : ''}`} onClick={() => {
-
-                  if (enableNext) {
-                    feachVideos({ url: videos?.paging?.next })
-                  }
+                nextLabel={<FaAngleDoubleRight onClick={() => {
+                  feachVideos({ url: videos?.paging?.next })
                 }} />}
-                previousLabel={<FaAngleDoubleLeft className={`${!enablePrev ? 'disable-cursor' : ''}`} onClick={() => {
-                  if (enablePrev) {
-                    feachVideos({ url: videos?.paging?.previous })
-                  }
+                previousLabel={<FaAngleDoubleLeft onClick={() => {
+                  feachVideos({ url: videos?.paging?.previous })
                 }} />}
                 pageClassName="page-item"
                 pageLinkClassName="page-link"
@@ -255,6 +255,7 @@ function AboutUs() {
                 breakLinkClassName="page-link"
                 containerClassName="pagination ltn__pagination justify-content-center"
                 activeClassName="active"
+                disabledClassName=""
                 renderOnZeroPageCount={null}
               />
             </div>
