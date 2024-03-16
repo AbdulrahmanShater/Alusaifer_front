@@ -9,7 +9,7 @@ function HeroSectionStyleFive() {
         <div className="ltn__slide-animation-active">
             
             {/* <!-- HTML5 VIDEO --> */}
-            <video autoPlay muted loop id="myVideo">
+            <video autoPlay playsinline muted loop id="myVideo">
                 <source src="/img/1203.mp4" type="video/mp4"/>
             </video>
 
