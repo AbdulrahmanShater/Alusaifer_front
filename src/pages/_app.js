@@ -1,6 +1,6 @@
 import { Fragment, useEffect } from "react";
 import Head from "next/head";
-import { Nunito_Sans, Poppins } from "next/font/google";
+import { Cairo, Poppins } from "next/font/google";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { wrapper } from "@/store";
@@ -17,12 +17,12 @@ import "yet-another-react-lightbox/plugins/counter.css";
 import "@/assets/sass/style.scss";
 import "@/assets/responsive.css";
 
-const nunito = Nunito_Sans({
+const nunito = Cairo({
   weight: ["200", "300", "400", "600", "700", "800", "900"],
   subsets: ["latin"],
   display: "swap",
 });
-const Poppin = Poppins({
+const Poppin = Cairo({
   weight: ["200", "300", "400", "600", "700", "800", "900"],
   subsets: ["latin"],
   display: "swap",

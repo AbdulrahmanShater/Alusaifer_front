@@ -21,7 +21,7 @@ function CounterUp() {
     <>
       <div className="ltn__counterup-area section-bg-1 pt-120 pb-70">
         <Container>
-          <Row>
+          <Row style={{justifyContent:'center'}}>
             <Col xs={12} sm={6} md={3} className="align-self-center">
               <div className="ltn__counterup-item">
                 <div className="counter-icon">
@@ -58,7 +58,7 @@ function CounterUp() {
                       className="count-text"
                       start={0}
                       end={loading ? 25 : 0}
-                      suffix="K+"
+                      suffix=""
                       duration={5}
                     />
                   </VisibilityObserver>
@@ -88,7 +88,7 @@ function CounterUp() {
                 <h6>إجمالي الإنشاءات</h6>
               </div>
             </Col>
-            <Col xs={12} sm={6} md={3} className="align-self-center">
+            {/* <Col xs={12} sm={6} md={3} className="align-self-center">
               <div className="ltn__counterup-item">
                 <div className="counter-icon">
                   <i className="flaticon-armchair"></i>
@@ -109,7 +109,7 @@ function CounterUp() {
                 </h1>
                 <h6>المشاريع</h6>
               </div>
-            </Col>
+            </Col> */}
           </Row>
         </Container>
       </div>

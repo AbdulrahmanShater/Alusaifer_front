@@ -3,9 +3,10 @@ import { Container, Row, Col } from "react-bootstrap";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
 import CallToAction from "@/components/callToAction";
 import TermsAndConditionsStyleOne from "@/components/termsAndConditions/termsAndConditionsStyleOne";
+import ConfigService from "@/api/services/ConfigService";
 
 
-function TermsAndConditions() {
+function TermsAndConditions({ text }) {
 
   return (
     <>
@@ -16,7 +17,7 @@ function TermsAndConditions() {
           currentSlug="الشروط و الأحكام"
         />
 
-        <TermsAndConditionsStyleOne sectionSpace="pb-90" />
+        <TermsAndConditionsStyleOne sectionSpace="pb-90" text={text} />
 
         <div className="ltn__call-to-action-area call-to-action-6 before-bg-bottom">
           <Container>
@@ -33,3 +34,25 @@ function TermsAndConditions() {
 }
 
 export default TermsAndConditions;
+
+
+
+export async function getServerSideProps() {
+
+  var buildingTypes = [];
+  var text = null;
+
+  await ConfigService.termsConditions({
+    data: null,
+    onSuccess: (response) => {
+      text = response.data.content;
+    }
+  });
+
+  return {
+    props: {
+      text
+    }
+  };
+
+}

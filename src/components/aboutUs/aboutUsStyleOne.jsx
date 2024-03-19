@@ -73,7 +73,7 @@ function AboutUsStyleOne({ sectionSpace }) {
                 </div>
                 <div className="btn-wrapper animated">
                   <Link
-                    href="/service"
+                    href="/about"
                     className="theme-btn-1 btn btn-effect-1"
                   >
                    المزيد

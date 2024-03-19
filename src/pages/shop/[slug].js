@@ -36,17 +36,28 @@ import { buildUrlWithParams } from "@/api/config/http";
 import ProductItem from "@/components/product";
 import { useRouter } from 'next/router';
 import { LoadingPage } from "@/components/Loading";
+import BuildingTypeService from "@/api/services/BuildingTypeService";
+import FilterService from "@/api/services/FilterService";
+import AqarService from "@/api/services/AqarService";
+import { VillaData } from "@/model/aqar";
+import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
 
+
+/**
+ * 
+ * @param {VillaData} product 
+ * @returns 
+ */
 function ProductDetails({ product, buildingTypes, category }) {
   // const { products } = useSelector((state) => state.product);
   // const { cartItems } = useSelector((state) => state.cart);
   // const { wishlistItems } = useSelector((state) => state.wishlist);
   // const { compareItems } = useSelector((state) => state.compare);
   // const latestdBlogs = getProducts(blogData, "buying", "featured", 4);
-  
+
   const router = useRouter();
 
-  
+
   const relatedProducts = category.aqars;
   const topRatedProducts = [];
   const popularProducts = [];
@@ -56,7 +67,7 @@ function ProductDetails({ product, buildingTypes, category }) {
 
 
   if (router.isFallback) {
-    return <LoadingPage/>;
+    return <LoadingPage />;
   }
 
 
@@ -203,7 +214,7 @@ function ProductDetails({ product, buildingTypes, category }) {
         />
         {/* <!-- BREADCRUMB AREA START --> */}
 
-        <BreadCrumb style={{ textAlign: "right" } }
+        <BreadCrumb style={{ textAlign: "right" }}
           title="تفاصيل العقار"
           sectionPace="mb-0"
           currentSlug={product.user}
@@ -271,7 +282,7 @@ function ProductDetails({ product, buildingTypes, category }) {
                         <a href="#">
                           <i className="far fa-eye"></i>
                           {product.views}
-                         المشاهدات
+                          المشاهدات
                         </a>
                       </li>
                     </ul>
@@ -284,57 +295,93 @@ function ProductDetails({ product, buildingTypes, category }) {
                     {product.address}
                   </label>
                   <h4 className="title-2"> {product.title}</h4>
-                  <p>{product.fullDescription}</p>
-                  <p>{product.shortDescription}</p>
+                  {/* <p>{product.fullDescription}</p>
+                  <p>{product.shortDescription}</p> */}
+
+                  <div className="property-detail-info-list section-bg-1  mb-60" style={{ textAlign: "right", padding: "1rem", direction: "rtl", display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-evenly" }}  >
+
+                    {
+                      [
+                        {
+                          title: "رقم الرخصة",
+                          value: product.license_number,
+                        },
+                        {
+                          title: "نوع الحساب",
+                          value: product.user_type,
+                        },
+                        {
+                          title: "رقم الإعلان",
+                          value: product.id,
+                        },
+                        {
+                          title: "رقم ترخيص الإعلان",
+                          value: product.adv_license_number ?? " ",
+                        }
+                      ].map((item, index) => {
+                        return <div key={index} style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          textAlign: "center",
+                          paddingLeft: "1rem",
+                          borderLeft: index >= 3 ? undefined : "1px var(--border-color-7) solid"
+                        }}>
+                          <label>{item.title}</label>{" "}
+                          <label style={{ minHeight: "1.2rem" }}>{item.value}</label>{" "}
+                        </div>
+                      })
+                    }
+
+                  </div>
 
                   <h4 className="title-2">التفاصيل</h4>
                   <div className="property-detail-info-list section-bg-1 clearfix mb-60">
-                    <ul>
-                      {/* <li>
-                        <label>Property ID:</label>{" "}
-                        <span>{product.license_number}</span>
-                      </li> */}
+                    <div dangerouslySetInnerHTML={{ __html: product.desc }} style={{ textAlign: "right", padding: "1rem" }} />
+
+                  </div>
+
+                  <h4 className="title-2">الميزات و الضمانات </h4>
+                  <div className="property-detail-info-list section-bg-1 clearfix mb-60" style={{ direction: "rtl", display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between" }}  >
+                    <ul style={{ borderRight: "none", borderLeft: "1px var(--border-color-7) solid" }}>
                       <li>
-                        <label>المساحة: </label>{" "}
-                        <span>{product.max_distance}</span>
+                        <label>غرف النوم:</label>
+                        {" "}
+                        <span>{product.bedrooms_count}</span>
+
                       </li>
                       <li>
-                        <label>الغرف:</label>{" "}
-                        <span>{product.all_rooms}</span>
-                      </li>
-                      <li>
-                        <label>دورات المياة:</label>{" "}
+                        <label>دورات المياه:</label>
+                        {" "}
                         <span>{product.bathrooms_count}</span>
                       </li>
                       <li>
-                        <label>عمر العقار:</label>{" "}
-                        <span>{product.age}</span>
+                        <label>غرف إضافية:</label>
+                        {" "}
+                        <span>{product.additional_rooms_count}</span>
                       </li>
                     </ul>
-                    <ul>
-                      {/* <li>
-                        <label>Lot Area:</label>{" "}
-                        <span>{product.propertyId}</span>
-                      </li>
-                      <li>
-                        <label>Lot dimensions:</label>{" "}
-                        <span>{product.area} sqft</span>
-                      </li> */}
-                      <li>
-                        <label>غرف التوم:</label>{" "}
-                        <span>{product.bedrooms_count}</span>
-                      </li>
-                      <li>
-                        <label>السعر:</label> <span>{product.max_price}</span>
-                      </li>
-                      {/* <li>
-                        <label>Property Status:</label>{" "}
-                        <span>{product.status}</span>
-                      </li> */}
-                    </ul>
+                    <div style={{ direction: "rtl", display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-evenly", gap: "2rem" }}>
+                      {
+                        product.network_types.map((network, index) => {
+                          return <div key={index} style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center" }}>
+                            <img src={network.image} style={{ width: "4rem", height: "4rem", objectFit: "cover" }} alt="Image" />
+                            <label>{network.name}</label>{" "}
+                          </div>
+                        })
+                      }
+                    </div>
                   </div>
 
-                 
+                  <h4 className="title-2">مميزات إضافية </h4>
+                  <div className="property-detail-info-list section-bg-1 clearfix mb-60" style={{ textAlign: "right", padding: "1rem", direction: "rtl" }}  >
+                    <FormGroup>
+                      <FormControlLabel control={<Checkbox readOnly disabled style={{ color: 'initial' }} checked={Boolean(product.kitchen)} />} label="مطبخ" />
+                      <FormControlLabel control={<Checkbox readOnly disabled style={{ color: 'initial' }} checked={Boolean(product.car_entrance)} />} label="مدخل سيارات" />
+                      <FormControlLabel control={<Checkbox readOnly disabled style={{ color: 'initial' }} checked={Boolean(product.maid_room)} />} label="غرفة خادمة" />
+                    </FormGroup>
+                  </div>
                   {/* <h4 className="title-2">From Our Gallery</h4>
                   <div className="ltn__property-details-gallery mb-30">
                     <div className="row">
@@ -454,7 +501,7 @@ function ProductDetails({ product, buildingTypes, category }) {
                     ></iframe>
                   </div>
 
-                
+
 
                   {/* <!-- APARTMENTS PLAN AREA END --> */}
 
@@ -892,7 +939,7 @@ function ProductDetails({ product, buildingTypes, category }) {
                     </form>
                   </div> */}
                   {/* <!-- Form Widget --> */}
-                
+
                   {/* <!-- Popular Post Widget --> */}
                   {/* <div className="widget ltn__popular-post-widget">
                     <h4 className="ltn__widget-title ltn__widget-title-border-2">
@@ -972,7 +1019,7 @@ export default ProductDetails;
 
 export async function getServerSideProps({ params }) {
   const { slug } = params;
-  
+
   console.log("getServerSideProps")
   console.log(params)
 
@@ -981,21 +1028,42 @@ export async function getServerSideProps({ params }) {
   // const res = await fetch(`https://api.example.com/products/${productId}`);
   // const product = await res.json();
 
-  const buildingResponse = await fetch(`https://akar.alusaifer.com.sa/api/building_types`);
-  var buildingTypes = await buildingResponse.json();
-  buildingTypes = buildingTypes.data.data;
+  var buildingTypes = [];
+  var product = null;
+
+  await BuildingTypeService.getAll({
+    data: null,
+    onSuccess: (response) => {
+      buildingTypes = response.data.data;
+    }
+  });
+
+  // const buildingResponse = await fetch(`https://akar.alusaifer.com.sa/api/building_types`);
+  // var buildingTypes = await buildingResponse.json();
+  // buildingTypes = buildingTypes.data.data;
 
   for (let index = 0; index < buildingTypes.length; index++) {
-    const aqarsResponse = await fetch(buildUrlWithParams(`https://akar.alusaifer.com.sa/api/advertisements/filter`, { buildingtype: String(buildingTypes[index].id) }));
-    const aqarsData = await aqarsResponse.json();
-    buildingTypes[index].aqars = aqarsData.data.data
+    await FilterService.getAll({
+      data: { buildingtype: String(buildingTypes[index].id) },
+      onSuccess: (response) => {
+        buildingTypes[index].aqars = response.data.data
+      }
+    })
+    // const aqarsResponse = await fetch(buildUrlWithParams(`https://akar.alusaifer.com.sa/api/advertisements/filter`, { buildingtype: String(buildingTypes[index].id) }));
+    // const aqarsData = await aqarsResponse.json();
+    // buildingTypes[index].aqars = aqarsData.data.data
   }
+  await AqarService.getDetails({
+    data: { id: params.slug },
+    onSuccess: (response) => {
+      product = response.data;
+    }
+  })
 
-  const response = await fetch(`https://akar.alusaifer.com.sa/api/advertisements/${params.slug}?fromDetails=0`);
-  const res = await response.json()
-  const product = res.data;
+  // const response = await fetch(`https://akar.alusaifer.com.sa/api/advertisements/${params.slug}?fromDetails=0`);
+  // const res = await response.json()
+  // const product = res.data;
 
-  
 
   const category = buildingTypes.find((f) => Number(f.id) == Number(product.building_type.id));
 

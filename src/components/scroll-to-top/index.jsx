@@ -6,7 +6,7 @@ const ScrollToTop = () => {
   if (stick) {
     return (
       <button id="scrollUp" className="scroll-top" onClick={onClickHandler}>
-       <span> <FaAngleUp /></span>
+        <FaAngleUp />
       </button>
     );
   }

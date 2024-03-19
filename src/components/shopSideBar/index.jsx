@@ -12,7 +12,7 @@ import FilterByPrice from "../FilterByPrice";
 import useBuildingType from "@/hooks/useBuildingType";
 import FilterBy from "../FilterBy";
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
-import { Box, Button, CircularProgress, LinearProgress, Radio, RadioGroup, Rating, TextField } from '@mui/material';
+import { Box, Button, CircularProgress, FormControlLabel, LinearProgress, Radio, RadioGroup, Rating, TextField } from '@mui/material';
 import { FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 import { FaThLarge, FaThList, FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
 
@@ -56,14 +56,21 @@ const SideBar = ({ products, getSortParams, filterHandler }) => {
       <aside className="sidebar ltn__shop-sidebar ltn__right-sidebar" style={{ textAlign: "right" }}>
         <h3 className="mb-10 !text-red-500">معلومات اضافية</h3>
         <label className="mb-30">
-          
+
         </label>
         {/* <!-- Advance Information widget --> */}
         <div className="widget ltn__menu-widget">
           <h4 className="ltn__widget-title">{"نوع العقار"}</h4>
+
           {hooksBuildingType.buildingTypes.length > 0 ? (
             <>
-              <ul>
+              <RadioGroup
+                style={{ direction: 'rtl' }}
+                value={searchData.buildingType}
+                onChange={(event) => {
+                  inputHandelerForce(event.target.value, 'buildingtype');
+                }}
+              >
                 {hooksBuildingType.buildingTypes &&
                   hooksBuildingType.buildingTypes.map((buildingType, key) => {
 
@@ -74,30 +81,31 @@ const SideBar = ({ products, getSortParams, filterHandler }) => {
                       }
                     }
 
-                    return (
-                      <li key={key}>
-                        <div>
-                          <label className="checkbox-item" style={{ display: "flex", flexDirection: "row-reverse" }}>
-                            {buildingType.name}
-                            <input
-                              onClick={(e) => {
-                                inputHandelerForce(buildingType.id, "buildingtype");
-                                // getSortParams("propertyTypes", buildingType.name);
-                                // setActiveSort(e);
-                              }}
-                              checked={checked}
-                              type="checkbox"
-                            />
-                            <span className="checkmark"></span>
-                          </label>
-                          <span className="categorey-no">
-                            {/* {products[key < aminities.length ? key : 1].price} */}
-                          </span>
-                        </div>
-                      </li>
-                    );
+                    return <FormControlLabel key={key} value={buildingType.id} control={<Radio />} label={buildingType.name} />
+                    // return (
+                    //   <li key={key}>
+                    //     <div>
+                    //       <label className="checkbox-item" style={{ display: "flex", flexDirection: "row-reverse" }}>
+                    //         {buildingType.name}
+                    //         <input
+                    //           onClick={(e) => {
+                    //             inputHandelerForce(buildingType.id, "buildingtype");
+                    //             // getSortParams("propertyTypes", buildingType.name);
+                    //             // setActiveSort(e);
+                    //           }}
+                    //           checked={checked}
+                    //           type="checkbox"
+                    //         />
+                    //         <span className="checkmark"></span>
+                    //       </label>
+                    //       <span className="categorey-no">
+                    //         {/* {products[key < aminities.length ? key : 1].price} */}
+                    //       </span>
+                    //     </div>
+                    //   </li>
+                    // );
                   })}
-              </ul>
+              </RadioGroup>
             </>
           ) : (
             "No categories found"
@@ -171,6 +179,19 @@ const SideBar = ({ products, getSortParams, filterHandler }) => {
 
           {/* <hr /> */}
           {/* <!-- Price Filter Widget --> */}
+
+          <hr />
+
+          <RadioGroup
+            style={{ direction: 'rtl' }}
+            value={searchData.from_dashboard}
+            onChange={(event) => {
+              inputHandelerForce(event.target.value, 'from_dashboard');
+            }}
+          >
+            <FormControlLabel value={1} control={<Radio />} label="مشارع الشركة" />
+            <FormControlLabel value={0} control={<Radio />} label="مشاريع التسويق الخارجي" />
+          </RadioGroup>
 
           <hr />
           <div className="ltn__price-filter-widget mt-30">
@@ -251,6 +272,7 @@ const SideBar = ({ products, getSortParams, filterHandler }) => {
                           type={inp.type}
                           min={inp.min}
                           name={inp.name}
+                          value={searchData[inp.name]}
                           onChange={inputHandeler}
                           placeholder={inp.title}
                         />

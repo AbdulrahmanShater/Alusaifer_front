@@ -1,5 +1,5 @@
 import axios, { AxiosError } from "axios"
-// import MyToast from "./toast"
+import MyToast from "./toast"
 
 type THttpError = Error | AxiosError | null
 
@@ -20,8 +20,7 @@ export function httpErrorHandler(error: THttpError, props: HttpErrorHandlerProps
         if (props.onUNRECONVERABLE_ERROR) {
             props.onUNRECONVERABLE_ERROR()
         } else {
-            alert("Unrecoverable error!!")
-            // new MyToast("Unrecoverable error!!").error()
+            new MyToast("Unrecoverable error!!").error()
         }
     } else {
 
@@ -30,51 +29,55 @@ export function httpErrorHandler(error: THttpError, props: HttpErrorHandlerProps
             //here we have a type guard check, error inside this if will be treated as AxiosError
             const response = error?.response
             const request = error?.request
+            const config = error?.config //here we have access the config used to make the api call (we can make a retry using this conf)
             if (error.message === 'Network Error') {
                 if (props.onNo_INTERNET) {
                     props.onNo_INTERNET()
                 } else {
-                     alert("NETWORK_ERROR")
+                    new MyToast("NETWORK_ERROR").error();
                 }
             } else if (error.code === 'ERR_NETWORK') {
                 if (props.onERR_NETWORK) {
                     props.onERR_NETWORK()
                 } else {
-                     alert("ERR_NETWORK")
+                    new MyToast("ERR_NETWORK").error();
                 }
             } else if (error.code === 'ECONNABORTED') {
                 if (props.onERR_NETWORK) {
                     props.onERR_NETWORK()
                 } else {
-                     alert("ERR_NETWORK")
+                    new MyToast("ERR_NETWORK").error();
                 }
             } else if (error.code === 'ERR_CANCELED') {
                 if (props.onERR_CANCELED) {
                     props.onERR_CANCELED()
                 } else {
-                     alert("ERR_CANCELED")
+                    new MyToast("ERR_CANCELED").error();
                 }
             } else if (response) {
+                //The request was made and the server responded with a status code that falls out of the range of 2xx the http status code mentioned above
                 const statusCode = response?.status
                 props.onStatusCode(statusCode)
             } else if (request) {
+                //The request was made but no response was received, `error.request` is an instance of XMLHttpRequest in the browser and an instance of http.ClientRequest in Node.js
                 if (props.onNO_RESPONSE) {
                     props.onNO_RESPONSE()
                 } else {
-                     alert("NO_RESPONSE")
+                    new MyToast("NO_RESPONSE").error();
                 }
             } else {
                 if (props.onSettingError) {
                     props.onSettingError()
                 } else {
-                    //  alert("SettingError")
+                    new MyToast("SettingError").error();
                 }
             }
         } else {
+            //Something happened in setting up the request and triggered an Error
             if (props.onSettingError) {
                 props.onSettingError()
             } else {
-                //  alert("SettingError")
+                new MyToast("SettingError").error();
             }
         }
     }

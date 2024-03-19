@@ -29,3 +29,43 @@
 @import "elements/_preloader";
 @import "elements/_search_popup";
 @import "elements/_button";
+
+.disable-cursor {
+    cursor: not-allowed !important;
+
+    * {
+        cursor: not-allowed !important;
+    }
+}
+
+#videoDialog {
+    background-color: #fff;
+    padding: 34px;
+    border: 0;
+    border-radius: 5px;
+    margin: auto;
+    box-shadow: 0 20px 75px rgba(0, 0, 0, 0.13);
+    // width: 50vw;
+
+    #vp-preview {
+        background-size: cover !important;
+    }
+
+    #player {
+        max-width: unset !important;
+    }
+
+    .closeBtn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: var(--ltn__secondary-color);
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 100%;
+        outline: none;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+    }
+}
