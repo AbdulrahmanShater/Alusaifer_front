@@ -36,18 +36,7 @@ import { buildUrlWithParams } from "@/api/config/http";
 import ProductItem from "@/components/product";
 import { useRouter } from 'next/router';
 import { LoadingPage } from "@/components/Loading";
-import BuildingTypeService from "@/api/services/BuildingTypeService";
-import FilterService from "@/api/services/FilterService";
-import AqarService from "@/api/services/AqarService";
-import { VillaData } from "@/model/aqar";
-import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
 
-
-/**
- * 
- * @param {VillaData} product 
- * @returns 
- */
 function ProductDetails({ product, buildingTypes, category }) {
   // const { products } = useSelector((state) => state.product);
   // const { cartItems } = useSelector((state) => state.cart);
@@ -295,56 +284,16 @@ function ProductDetails({ product, buildingTypes, category }) {
                     {product.address}
                   </label>
                   <h4 className="title-2"> {product.title}</h4>
-                  {/* <p>{product.fullDescription}</p>
-                  <p>{product.shortDescription}</p> */}
-
-                  <div className="property-detail-info-list section-bg-1  mb-60" style={{ textAlign: "right", padding: "1rem", direction: "rtl", display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-evenly" }}  >
-
-                    {
-                      [
-                        {
-                          title: "رقم الرخصة",
-                          value: product.license_number,
-                        },
-                        {
-                          title: "نوع الحساب",
-                          value: product.user_type,
-                        },
-                        {
-                          title: "رقم الإعلان",
-                          value: product.id,
-                        },
-                        {
-                          title: "رقم ترخيص الإعلان",
-                          value: product.adv_license_number ?? " ",
-                        }
-                      ].map((item, index) => {
-                        return <div key={index} style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          textAlign: "center",
-                          paddingLeft: "1rem",
-                          borderLeft: index >= 3 ? undefined : "1px var(--border-color-7) solid"
-                        }}>
-                          <label>{item.title}</label>{" "}
-                          <label style={{ minHeight: "1.2rem" }}>{item.value}</label>{" "}
-                        </div>
-                      })
-                    }
-
-                  </div>
+                  <p>{product.fullDescription}</p>
+                  <p>{product.shortDescription}</p>
 
                   <h4 className="title-2">التفاصيل</h4>
                   <div className="property-detail-info-list section-bg-1 clearfix mb-60">
-                    <div dangerouslySetInnerHTML={{ __html: product.desc }} style={{ textAlign: "right", padding: "1rem" }} />
-
-                  </div>
-
-                  <h4 className="title-2">الميزات و الضمانات </h4>
-                  <div className="property-detail-info-list section-bg-1 clearfix mb-60" style={{ direction: "rtl", display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between" }}  >
-                    <ul style={{ borderRight: "none", borderLeft: "1px var(--border-color-7) solid" }}>
+                    <ul>
+                      {/* <li>
+                        <label>Property ID:</label>{" "}
+                        <span>{product.license_number}</span>
+                      </li> */}
                       <li>
                         <label>غرف النوم:</label>
                         {" "}
@@ -362,26 +311,30 @@ function ProductDetails({ product, buildingTypes, category }) {
                         <span>{product.additional_rooms_count}</span>
                       </li>
                     </ul>
-                    <div style={{ direction: "rtl", display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-evenly", gap: "2rem" }}>
-                      {
-                        product.network_types.map((network, index) => {
-                          return <div key={index} style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center" }}>
-                            <img src={network.image} style={{ width: "4rem", height: "4rem", objectFit: "cover" }} alt="Image" />
-                            <label>{network.name}</label>{" "}
-                          </div>
-                        })
-                      }
-                    </div>
+                    <ul>
+                      {/* <li>
+                        <label>Lot Area:</label>{" "}
+                        <span>{product.propertyId}</span>
+                      </li>
+                      <li>
+                        <label>Lot dimensions:</label>{" "}
+                        <span>{product.area} sqft</span>
+                      </li> */}
+                      <li>
+                        <label>غرف التوم:</label>{" "}
+                        <span>{product.bedrooms_count}</span>
+                      </li>
+                      <li>
+                        <label>السعر:</label> <span>{product.max_price}</span>
+                      </li>
+                      {/* <li>
+                        <label>Property Status:</label>{" "}
+                        <span>{product.status}</span>
+                      </li> */}
+                    </ul>
                   </div>
 
-                  <h4 className="title-2">مميزات إضافية </h4>
-                  <div className="property-detail-info-list section-bg-1 clearfix mb-60" style={{ textAlign: "right", padding: "1rem", direction: "rtl" }}  >
-                    <FormGroup>
-                      <FormControlLabel control={<Checkbox readOnly disabled style={{ color: 'initial' }} checked={Boolean(product.kitchen)} />} label="مطبخ" />
-                      <FormControlLabel control={<Checkbox readOnly disabled style={{ color: 'initial' }} checked={Boolean(product.car_entrance)} />} label="مدخل سيارات" />
-                      <FormControlLabel control={<Checkbox readOnly disabled style={{ color: 'initial' }} checked={Boolean(product.maid_room)} />} label="غرفة خادمة" />
-                    </FormGroup>
-                  </div>
+                 
                   {/* <h4 className="title-2">From Our Gallery</h4>
                   <div className="ltn__property-details-gallery mb-30">
                     <div className="row">
