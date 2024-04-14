@@ -30,7 +30,7 @@ export const apiCall = async <ResponseInterface, BobyInterface>({ method, onBefo
         if (onSuccess) {
             onSuccess(response.data);
         }
-    } catch (error) {
+    } catch (error: any) {
         httpErrorHandler(error, {
             onStatusCode: function (status: number): void {
                 if (onStatusCodeError) {

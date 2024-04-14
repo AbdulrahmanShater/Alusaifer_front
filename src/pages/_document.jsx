@@ -24,7 +24,7 @@ export default function Document() {
         {/* End Google Tag Manager */}
 
         {/* zoho code */}
-        <script src="https://cdn.pagesense.io/js/alusaifercomsa/c7257d394d2242daab61bb884e3aed8d.js" async></script>
+        <script src="https://cdn.pagesense.io/js/alusaifercomsa/c7257d394d2242daab61bb884e3aed8d.js"></script>
         {/* End zoho code */}
 
       </Head>

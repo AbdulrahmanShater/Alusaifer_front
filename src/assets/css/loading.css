@@ -24,7 +24,8 @@
     animation: animateC 2s linear infinite;
     /* border-top: 5px solid #ec994b;
     border-right: 5px solid #efac14; */
-    @apply border-t-4 border-r-4 border-t-secondary border-r-secondary
+    @apply border-t-4 border-r-4 border-t-color1 border-r-color1
+
 }
 
 @keyframes animateC {

@@ -16,10 +16,12 @@ export interface Image {
 }
 
 
-export interface VillaData {
+export interface AqarModel {
     id: number;
 
     user: string;
+
+    name: string;
 
     user_avatar: string;
 
@@ -54,7 +56,7 @@ export interface VillaData {
     max_distance: number;
 
     // عدد الشقق
-    apartments_count: number | null;
+    apartments_count: number;
 
     // غرف النوم
     bedrooms_count: number;
@@ -69,13 +71,13 @@ export interface VillaData {
     all_rooms: number;
 
     // المحلات
-    shops_count: number | null;
+    shops_count: number;
 
     // عرض الشارع
     street_width: number | null;
 
     // عمر العقار
-    age: string | null;
+    age: string;
 
     // واجهة المبنى
     interface: string | null;

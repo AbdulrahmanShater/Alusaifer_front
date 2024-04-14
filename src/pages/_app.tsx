@@ -1,9 +1,9 @@
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Head from "next/head";
 import { Nunito_Sans, Poppins } from "next/font/google";
 import { Provider } from "react-redux";
-import { PersistGate } from "redux-persist/integration/react";
-import { wrapper } from "@/store/index";
+// import { PersistGate } from "redux-persist/integration/react";
+import { wrapper, persistor } from "@/store/index";
 import Preloader from "@/components/preloader";
 import { AppProps } from 'next/app';
 import "animate.css";
@@ -15,6 +15,9 @@ import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/counter.css";
 import "@/assets/sass/style.scss";
 import "@/assets/responsive.css";
+import { PersistGate } from "redux-persist/integration/react";
+import Router from "next/router";
+import { LoadingPage } from "@/components/Loading";
 
 const nunito = Nunito_Sans({
   weight: ["200", "300", "400", "600", "700", "800", "900"],
@@ -29,6 +32,26 @@ const Poppin = Poppins({
 
 const MyApp = ({ Component, ...rest }: AppProps) => {
   const { store, props } = wrapper.useWrappedStore(rest);
+
+  const [loading, setLoading] = useState<boolean>(false);
+  useEffect(() => {
+    const start = () => {
+      console.log("start");
+      setLoading(true);
+    };
+    const end = () => {
+      console.log("findished");
+      setLoading(false);
+    };
+    Router.events.on("routeChangeStart", start);
+    Router.events.on("routeChangeComplete", end);
+    Router.events.on("routeChangeError", end);
+    return () => {
+      Router.events.off("routeChangeStart", start);
+      Router.events.off("routeChangeComplete", end);
+      Router.events.off("routeChangeError", end);
+    };
+  }, []);
 
   return (
     <Fragment>
@@ -51,8 +74,14 @@ const MyApp = ({ Component, ...rest }: AppProps) => {
 
       `}</style>
       <Provider store={store}>
-        <PersistGate persistor={(store as any).__persistor} loading={<Preloader />}>
-          <Component {...props.pageProps} />
+        <PersistGate persistor={persistor} loading={<Preloader />}>
+
+          {loading ? (
+            <LoadingPage />
+          ) : (
+            <Component {...props.pageProps} />
+          )}
+
         </PersistGate>
       </Provider>
     </Fragment>

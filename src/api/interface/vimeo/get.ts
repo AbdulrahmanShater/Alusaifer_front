@@ -1,4 +1,3 @@
-import { BaseJsonResponse, PaginationResponse } from "../../config/BaseJson";
 
 
 export interface VimeoData {
@@ -13,5 +12,15 @@ export interface VimeoData {
         base_link: string
     },
 }
-
-export interface VimeoJsonR extends BaseJsonResponse<PaginationResponse<VimeoData[]>> { }
+export interface VimeoJsonR {
+    data: VimeoData[],
+    page: number,
+    per_page: number,
+    total: number,
+    paging: {
+        first: string
+        last: string
+        next: string | null
+        previous: string | null
+    },
+}

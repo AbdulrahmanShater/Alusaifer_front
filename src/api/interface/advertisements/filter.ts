@@ -1,4 +1,4 @@
-import { VillaData } from "@/model/aqar";
+import { AqarModel } from "@/model/aqar";
 import { BaseJsonResponse, PaginationResponse } from "../../config/BaseJson";
 
 
@@ -12,10 +12,11 @@ export interface FilterData {
     cheaper?: string
     latest?: string
     isNearst?: boolean
+    from_dashboard?: boolean
     mine?: string
 
     bathroomsCount?: string
-    buildingtype?: string
+    buildingtype?: number
     minprice?: string
     maxprice?: string
     mindistance?: string
@@ -28,4 +29,4 @@ export interface FilterData {
     shopscount?: string
 }
 
-export interface FilterJsonR extends BaseJsonResponse<PaginationResponse<VillaData[]>> { }
+export interface FilterJsonR extends BaseJsonResponse<PaginationResponse<AqarModel[]>> { }
