@@ -364,7 +364,7 @@ function ProductDetails({ product, buildingTypes, category }) {
                     </ul>
                     <div style={{ direction: "rtl", display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-evenly", gap: "2rem" }}>
                       {
-                        product.network_types.map((network, index) => {
+                        (product.network_types ?? []).map((network, index) => {
                           return <div key={index} style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center" }}>
                             <img src={network.image} style={{ width: "4rem", height: "4rem", objectFit: "cover" }} alt="Image" />
                             <label>{network.name}</label>{" "}
@@ -1020,16 +1020,13 @@ export default ProductDetails;
 export async function getServerSideProps({ params }) {
   const { slug } = params;
 
-  console.log("getServerSideProps")
-  console.log(params)
-
-
   // Fetch product details from an API based on productId
   // const res = await fetch(`https://api.example.com/products/${productId}`);
   // const product = await res.json();
 
   var buildingTypes = [];
   var product = null;
+  var category = null;
 
   await BuildingTypeService.getAll({
     data: null,
@@ -1065,7 +1062,9 @@ export async function getServerSideProps({ params }) {
   // const product = res.data;
 
 
-  const category = buildingTypes.find((f) => Number(f.id) == Number(product.building_type.id));
+  if (product != null) {
+    category = buildingTypes.find((f) => Number(f.id) == Number(product.building_type.id));
+  }
 
   return {
     props: {
