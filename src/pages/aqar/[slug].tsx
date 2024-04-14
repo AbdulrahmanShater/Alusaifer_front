@@ -334,8 +334,8 @@ function ProductDetails({ aqar, category }: ProductDetailsProps) {
                               title: "غرفة خادمة",
                               checked: Boolean(aqar.elevator),
                             },
-                          ].map(({ title, checked }) => {
-                            return <FormControlLabel control={<Checkbox readOnly disabled style={{ color: 'initial' }} checked={checked} />} label={title} />
+                          ].map(({ title, checked },key) => {
+                            return <FormControlLabel key={key} control={<Checkbox readOnly disabled style={{ color: 'initial' }} checked={checked} />} label={title} />
                           })
                         }
                       </FormGroup>

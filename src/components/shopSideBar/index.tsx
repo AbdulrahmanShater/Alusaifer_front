@@ -57,8 +57,8 @@ const SideBar = ({ filterHandler }: SideBarProps) => {
             }}
           >
             {
-              hooksBuildingType.buildingTypes.map((buildingType) => {
-                return <FormControlLabel value={buildingType.id} control={<Radio />} label={buildingType.name} />
+              hooksBuildingType.buildingTypes.map((buildingType,key) => {
+                return <FormControlLabel key={key} value={buildingType.id} control={<Radio />} label={buildingType.name} />
               })
             }
           </RadioGroup>
