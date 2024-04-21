@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
 import { LayoutOne } from "@/layouts";
 import { FaThLarge, FaThList, FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
@@ -14,6 +14,7 @@ import Skeleton from '@mui/material/Skeleton';
 import { AqarModel } from "@/model/aqar";
 import { FilterData } from "@/api/interface/advertisements";
 import { PaginationResponse } from "@/api/config/BaseJson";
+import { number } from "prop-types";
 
 function ShopRightSideBar() {
 
@@ -24,6 +25,8 @@ function ShopRightSideBar() {
   const [searchData, setSearchData] = useState<FilterData>({});
 
   const [query, setQuery] = useState("");
+
+  const pageCounts = useMemo<number>(() => Number((results?.meta?.links ?? []).length - 2), [results])
 
   const handlePageClick = (event: any) => {
     var url = `&page=${event.selected + 1}`;
@@ -166,7 +169,7 @@ function ShopRightSideBar() {
                     onPageChange={handlePageClick}
                     pageRangeDisplayed={3}
                     marginPagesDisplayed={2}
-                    pageCount={Number(results?.meta?.links.length) - 2}
+                    pageCount={(pageCounts < 0) ? 0 : pageCounts}
                     nextRel={results?.links?.next}
                     prevRel={results?.links?.prev}
                     nextLabel={<FaAngleDoubleLeft />}
@@ -184,6 +187,7 @@ function ShopRightSideBar() {
                     activeClassName="active"
                     renderOnZeroPageCount={null}
                   />
+
                 </div>
               </Col>
 

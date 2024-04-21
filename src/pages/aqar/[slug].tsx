@@ -157,6 +157,7 @@ function ProductDetails({ aqar, category }: ProductDetailsProps) {
     <>
       <LayoutOne topbar={true} >
         <>
+        {console.log(aqar)}
           <ModalVideo
             channel="youtube"
             isOpen={isOpen}
