@@ -45,7 +45,7 @@
     border-radius: 5px;
     margin: auto;
     box-shadow: 0 20px 75px rgba(0, 0, 0, 0.13);
-    // width: 50vw;
+    width: 30vw;
 
     #vp-preview {
         background-size: cover !important;
@@ -68,4 +68,9 @@
         color: #fff;
         cursor: pointer;
     }
+}
+
+
+#player {
+    min-width: 100%;
 }

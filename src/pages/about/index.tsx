@@ -132,7 +132,37 @@ function AboutUs() {
               </Row>
 
               <div className="ltn__pagination-area text-center">
-                <ReactPaginate
+
+
+                <div className="pagination ltn__pagination justify-content-center gap-3" >
+
+
+
+                  <li className={`page-item ${!enableNext ? 'disable-cursor' : 'active'}`}>
+                    <button className="page-link">
+                      <FaAngleDoubleRight className={`page-item n${!enableNext ? '' : ''}`} onClick={() => {
+
+                        if (enableNext) {
+                          feachVideos({ url: videos?.paging?.next });
+                        }
+                      }} />
+                    </button>
+                  </li>
+
+
+                  <li className={`page-item ${!enablePrev ? 'disable-cursor' : 'active'}`}>
+                    <button className="page-link">
+                      <FaAngleDoubleLeft className={`page-item p${!enablePrev ? '' : ''}`} onClick={() => {
+                        if (enablePrev) {
+                          feachVideos({ url: videos?.paging?.previous });
+                        }
+                      }} />
+                    </button>
+                  </li>
+                </div>
+
+                {/* <ReactPaginate
+
                   nextLabel={<FaAngleDoubleLeft className={`${!enableNext ? 'disable-cursor' : ''}`} onClick={() => {
 
                     if (enableNext) {
@@ -156,8 +186,8 @@ function AboutUs() {
                   containerClassName="pagination ltn__pagination justify-content-center"
                   activeClassName="active"
                   renderOnZeroPageCount={null}
-                  pageCount={0}
-                />
+                  pageCount={1}
+                /> */}
               </div>
 
 
@@ -174,7 +204,7 @@ function AboutUs() {
             </Container>
           </div>
         </>
-      </LayoutOne>
+      </LayoutOne >
     </>
   );
 }
