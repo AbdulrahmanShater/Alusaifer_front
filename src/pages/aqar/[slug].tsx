@@ -61,9 +61,12 @@ function ProductDetails({ aqar, category }: ProductDetailsProps) {
     return <LoadingPage />;
   }
 
-  function extractVideoId(url: string) {
-    const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-    const match = String(url).match(regex);
+  function extractVideoId(url: string): string | null {
+    // Combine best regex patterns with Shorts support:
+    const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtu(?:\.be|be\.com)\/(?:watch\?v=|embed\/|\S*?[?&]v=)|youtu\.be\/|youtube\.com\/shorts\/)([a-zA-Z0-9_-]{11})/;
+  
+    // Use match() with capturing group to extract ID:
+    const match = url.match(regex);
     return match ? match[1] : null;
   }
 
@@ -161,7 +164,7 @@ function ProductDetails({ aqar, category }: ProductDetailsProps) {
           <ModalVideo
             channel="youtube"
             isOpen={isOpen}
-            videoId={extractVideoId(aqar?.video_link ?? "") ?? ""}
+            videoId={extractVideoId(aqar.video_link ?? "") ?? ""}
             
             onClose={() => setOpen(false)}
           />

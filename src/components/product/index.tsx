@@ -66,7 +66,7 @@ const ProductItem = ({ productData, baseUrl }: ProductItemProps) => {
             </span>
           </div>
           <h2 className="product-title">
-            <Link href={``}>{productData.name}</Link>
+            <Link href={`/aqar/${productData.id}`}>{productData.name}</Link>
           </h2>
           <div className="product-description">
             <p>{productData.address}</p>
